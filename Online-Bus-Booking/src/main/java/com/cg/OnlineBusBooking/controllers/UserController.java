@@ -20,6 +20,8 @@ import com.cg.OnlineBusBooking.serviceinterfaces.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+//Code start - By Sagar KC
+
 @RestController
 @RequestMapping(path = "/api/v1/users") //URL specification before every method
 @Api(value = "User", tags = { "UserAPI" })
@@ -68,5 +70,7 @@ public class UserController {
 	public void updateUser(@PathVariable("username") String username, @PathVariable("password") String password) {
 		userService.updateUser(username, password);
 	}
+	
+	//Code end - By Sagar KC
 	
 }
