@@ -20,84 +20,159 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.OnlineBusBooking.entities.Booking;
 import com.cg.OnlineBusBooking.entities.Feedback;
 import com.cg.OnlineBusBooking.entities.User;
+import com.cg.OnlineBusBooking.exceptions.BookingAlreadyExistException;
+import com.cg.OnlineBusBooking.exceptions.BookingNotFoundException;
 import com.cg.OnlineBusBooking.serviceinterfaces.IBookingService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import javassist.NotFoundException;
+
+
 
 @RestController
 @RequestMapping(path = "/api/v1/bookings") //URL specification before every method
+@Api(value = "Booking", tags = { "BookingAPI" })
 public class BookingController {
 	
 	//Dependency Injection
 	@Autowired
 	IBookingService bookingService;
 	
-	//REST Method to add a booking
+	/**
+	 * This method is for adding a booking
+	 * 
+	 * @param Booking
+	 * @throws BookingAlreadyExistException
+	 */
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "Add a booking", response = Booking.class)
 	public long addBooking(@RequestBody Booking booking) {
 		return bookingService.addBooking(booking);
 	}
 	
-	//REST Method to update a bookings date field
+	/**
+	 * This method is for updating the date of a booking
+	 * 
+	 * @param long
+	 * @return boolean
+	 * @throws BookingNotFoundException
+	 */
 	@PutMapping("/update/{bookingId}")
 	@ResponseStatus(HttpStatus.OK)
 	@Transactional
+	@ApiOperation(value = "Update a booking date", notes = "Provide date in YYYY-MM-DD format", response = Booking.class)
 	public boolean updateBookingDate (@PathVariable("bookingId") long bookingId) {
 		return bookingService.updateBookingDate(bookingId);
 	}
 	
-	//REST Method to delete a booking
+	/**
+	 * This method is to delete a booking
+	 * 
+	 * @param long
+	 * @return boolean
+	 * @throws BookingNotFoundException
+	 */
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Delete a booking", response = Booking.class)
 	public boolean deleteBooking(@PathVariable("id") long id) {
 		return bookingService.deleteBooking(id);
 	}
 	
-	//REST Method to get the booking details from a specific booking ID
+	/**
+	 * This method is for getting booking details by ID
+	 * 
+	 * @param long
+	 * @return List<Booking>
+	 * @throws BookingNotFoundException
+	 */
 	@GetMapping("/{bookingId}")
 	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get booking details by ID", response = Booking.class)
 	public Booking getBookingDetailsById(@PathVariable("bookingId") long bookingId) {
 		return bookingService.getBookingDetailsById(bookingId);
 	}
 	
-	//REST Method to get the booking details from a specific date
+	/**
+	 * This method is for getting all bookings by date
+	 * 
+	 * @param String
+	 * @return List<Booking>
+	 * @throws BookingNotFoundException
+	 */
 	@GetMapping("/date/{date}")
 	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all booking details by date", response = Booking.class)
 	public List<Booking> getAllBookingByDate(@PathVariable("date") String date){
 		LocalDate d = LocalDate.parse(date); 
 		return bookingService.getAllBookingByDate(d);
 	}
 	
-	//REST Method to find all bookings
+	/**
+	 * This method is for finding all bookings
+	 * 
+	 * @return List<Booking>
+	 * @throws BookingNotFoundException
+	 */
 	@GetMapping("/")
 	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all bookings", response = Booking.class)
 	public List<Booking> findAllBookings (){
 		return bookingService.findAllBookings();
 	}
 	
-	//REST Method to get the bookings from a specific bus route
-	@GetMapping("/routeName/{routeName}")
+	/**
+	 * This method is for finding all bookings by bus route
+	 * 
+	 * @param String
+	 * @return List<Booking>
+	 * @throws BookingNotFoundException
+	 */
+	@GetMapping("/routename/{routeName}")
 	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all bookings by bus route", notes = "Provide Bus Route name", response = Booking.class)
 	public List<Booking> getAllBookingByBusRoute(@PathVariable("routeName") String routeName){
 		return bookingService.getAllBookingByBusRoute(routeName);
 	}
 	
-	//REST Method to add a feedback via booking ID
+	/**
+	 * This method is to add a feedback by user and booking ID
+	 * 
+	 * @param User, long
+	 * @throws NotFoundException
+	 */
 	@PostMapping("/feedback/{bookingId}")
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "Add a feedback", notes = "Provide a user and booking ID", response = Feedback.class)
 	public void addFeedback(@RequestBody User user,@PathVariable("bookingId") long bookingId) {
 		bookingService.addFeedback(user, bookingId);
 	}
 	
-	//REST Method to get feedbacks via specific bus route
+	/**
+	 * This method is to get feedback by bus route
+	 * 
+	 * @param String
+	 * @return List<Feedback>
+	 * @throws NotFoundException
+	 */
 	@GetMapping("/feedback/routeName/{routeName}")
 	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get feedback by bus route", response = Feedback.class)
 	public List<Feedback> getFeedbackByBusRoute(@PathVariable("routeName") String routeName){
 		return bookingService.getFeedbackByBusRoute(routeName);
 	}
 	
-	//REST Method to add a feedback with comment
+	/**
+	 * This method is to add feedback by username, booking ID and comment
+	 * 
+	 * @param String, long, String
+	 * @throws NotFoundException
+	 */
 	@PostMapping("/feedback/add/{username}:{bookingId}")
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "Add a feedback by username, booking ID and comment", response = Feedback.class)
 	public void addFeedback(@PathVariable("username") String username, @PathVariable("bookingId") long bookingId, @RequestBody String comment) {
 		bookingService.addFeedback(username, bookingId, comment);
 	}

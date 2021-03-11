@@ -12,6 +12,8 @@ import com.cg.OnlineBusBooking.exceptions.UserNotFoundException;
 import com.cg.OnlineBusBooking.repositories.IUserRepository;
 import com.cg.OnlineBusBooking.serviceinterfaces.IUserService;
 
+//Code start - By Sagar KC
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -62,4 +64,5 @@ public class UserServiceImpl implements IUserService {
 		return userRepository.findAll();
 	}
 	
+//Code end - By Sagar KC	
 }

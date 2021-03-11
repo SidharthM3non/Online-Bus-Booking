@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By Sadathulla Shariff & Sajin S
+
 //Entity Creation with annotation
 @Entity
 public class Booking {
@@ -21,28 +25,41 @@ public class Booking {
 	int id;
 	
 	//fields (or) columns
-	long bookingId;
-	String username;
-	String busNumber;
-	String source;
-	String destination;
-	int numberOfSeats;
-	int amountPaid;
-	LocalDate date;
-	LocalTime journeyStartTime;
-	LocalTime journeyEndTime;
+	@ApiModelProperty(notes = "Booking ID for a booking")
+	private long bookingId;
+	@ApiModelProperty(notes = "Username of user")
+	private String username;
+	@ApiModelProperty(notes = "Bus Number of the booking")
+	private String busNumber;
+	@ApiModelProperty(notes = "Source location of booking")
+	private String source;
+	@ApiModelProperty(notes = "Destination location of booking")
+	private String destination;
+	@ApiModelProperty(notes = "Number of seats to be booked")
+	private int numberOfSeats;
+	@ApiModelProperty(notes = "Total fare paid")
+	private int amountPaid;
+	@ApiModelProperty(notes = "Date of booking [YYYY-MM-DD]")
+	private LocalDate date;
+	@ApiModelProperty(notes = "Start time of the journey [HH:MM]")
+	private LocalTime journeyStartTime;
+	@ApiModelProperty(notes = "End time of the journey [HH:MM]")
+	private LocalTime journeyEndTime;
 	
 	//Unidirectional mapping to User table
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
+	@ApiModelProperty(notes = "User for booking [User ID]")
 	User user; //many bookings can be done by 1 user  or 1 user can book many bookings
 	
 	//Unidirectional mapping to BusRoute table
 	@ManyToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "Bus route for booking [BusRoute ID]")
 	BusRoute busRoute;
 	
 	//Unidirectional mapping to Bus table
 	@ManyToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "Bus for booking [Bus ID]")
 	Bus bus;
 	
 	//Non-parameterized constructor
@@ -154,5 +171,7 @@ public class Booking {
 	public void setBus(Bus bus) {
 		this.bus = bus;
 	}
+	
+//Code end - By Sadathulla Shariff & Sajin S	
 	
 }

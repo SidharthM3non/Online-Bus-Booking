@@ -14,34 +14,57 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.OnlineBusBooking.entities.User;
+import com.cg.OnlineBusBooking.exceptions.UserNotFoundException;
 import com.cg.OnlineBusBooking.serviceinterfaces.IUserService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(path = "/api/v1/users") //URL specification before every method
+@Api(value = "User", tags = { "UserAPI" })
 public class UserController {
 	
 	//Dependency Injection
 	@Autowired
 	IUserService userService;
 	
-	//REST Method to add a user
+	/**
+	 * This method is for adding a user
+	 * 
+	 * @param User
+	 * @throws UserAlreadyExistsException
+	 */
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "Add a user", response = User.class)
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
 	
-	//REST Method to delete a user
+	/**
+	 * This method is to delete a user
+	 * 
+	 * @param String
+	 * @throws UserNotFoundException
+	 */
 	@DeleteMapping("/delete/{username}")
 	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Delete a user", response = User.class)
 	public void deleteUser(@PathVariable("username") String username) {
 		userService.deleteUser(username);
 	}
 	
-	//REST Method to update users password
+	/**
+	 * This method is to update a users password
+	 * 
+	 * @param String, String
+	 * @throws UserNotFoundException
+	 */
 	@PutMapping("/update/{username}:{password}")
 	@Transactional
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "Update a user passwoord", notes = "Provide old and new password", response = User.class)
 	public void updateUser(@PathVariable("username") String username, @PathVariable("password") String password) {
 		userService.updateUser(username, password);
 	}

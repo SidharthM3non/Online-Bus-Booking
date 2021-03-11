@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By Dhavala B
+
 //Entity Creation with annotation
 @Entity
 public class Feedback {
@@ -17,17 +21,23 @@ public class Feedback {
 	int id;
 	
 	//fields (or) columns
-	int rating;
-	String comment;
-	String username;
-	String routeName;
+	@ApiModelProperty(notes = "Rating out of 5")
+	private int rating;
+	@ApiModelProperty(notes = "Comment about the journey")
+	private String comment;
+	@ApiModelProperty(notes = "Username")
+	private String username;
+	@ApiModelProperty(notes = "Route name")
+	private String routeName;
 	
 	//Unidirectional mapping to User table
 	@ManyToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "User for the Feedback [User ID]")
 	User user;
 	
 	//Unidirectional mapping to BusOperator table
 	@ManyToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "Feedback given to Bus Operator [BusOperator ID]")
 	BusOperator busOperator;
 	
 	//Non-parameterized constructor
@@ -89,5 +99,7 @@ public class Feedback {
 	public void setBusOperator(BusOperator busOperator) {
 		this.busOperator = busOperator;
 	}
+	
+//Code end - By Dhavala B	
 	
 }

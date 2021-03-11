@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By Sagar KC 
+
 //Entity Creation with annotation
 @Entity
 @Table(name = "user_info") //Postgre does not allow a table to be called User
@@ -17,8 +21,10 @@ public class User {
 	int id;
 	
 	//fields (or) columns
-	String username;
-	String password;
+	@ApiModelProperty(notes = "Username")
+	private String username;
+	@ApiModelProperty(notes = "password")
+	private String password;
 	
 	//Non-parameterized constructor
 	public User() {
@@ -51,5 +57,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+//Code end - By Sagar KC
 	
 }

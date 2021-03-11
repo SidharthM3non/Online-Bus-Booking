@@ -50,6 +50,8 @@ public class AdminServiceImpl implements IAdminService{
 	@Autowired
 	IFeedbackRepository feedbackRepository;
 	
+	//Code start - By Sajin S
+	
 	//Method to find all Bus Operators
 	@Override
 	public List<BusOperator> getAllBusOperator(){
@@ -63,12 +65,9 @@ public class AdminServiceImpl implements IAdminService{
 		return busOperator;
 	}
 	
-	//Method to find all bus operator requests
-	@Override
-	public List<BusOperatorRequest> getAllBusOperatorsRequest(){
-		List<BusOperatorRequest> busOperatorRequest = busOperatorRequestRepository.findAll();
-		return busOperatorRequest;
-	}
+	//Code end - By Sajin S
+	
+	//Code start - By Sagar KC
 	
 	//Method to update the journey duration of a booking
 	@Override
@@ -89,12 +88,27 @@ public class AdminServiceImpl implements IAdminService{
 		b.setRouteName(route);
 	}
 	
+	//Code end - By Sagar KC
+	
+	//Code start - By Dhavala B
+	
 	//Method to update the bus far of a specific bus
 	@Override
 	public void updateBusFare(Bus bus, int fare) {
 		Bus b = busRepository.findByBusNumber(bus.getBusNumber());
 		b.setFare(fare);
 	}
+	
+	//Method to find all bus operator requests
+	@Override
+	public List<BusOperatorRequest> getAllBusOperatorsRequest(){
+		List<BusOperatorRequest> busOperatorRequest = busOperatorRequestRepository.findAll();
+		return busOperatorRequest;
+	}
+	
+	//Code end - By Dhavala B
+	
+	//Code start - By Saurabh Dadhich
 	
 	//Method to delete a bus
 	@Override
@@ -124,6 +138,10 @@ public class AdminServiceImpl implements IAdminService{
 		}
 	}
 	
+	//Code end - By Saurabh Dadhich
+	
+	//Code start - By Sidharth Menon
+	
 	//Method to delete a bus by Bus Operator
 	@Override
 	public void deleteBusByOperator(String busOperatorUsername) {
@@ -151,6 +169,10 @@ public class AdminServiceImpl implements IAdminService{
 		}
 	}
 	
+	//Code end - By Sidharth Menon
+	
+	//Code start - By Sadathulla Shariff
+	
 	//Method to get revenue generated on certain date
 	@Override
 	public int getRevenueByDate(LocalDate date) {
@@ -173,6 +195,10 @@ public class AdminServiceImpl implements IAdminService{
 		return i;
 	}
 	
+	//Code end - By Sadathulla Shariff
+	
+	//Code start - By Saurabh Dadhich
+	
 	//Method to get revenue generated from specific Bus Operator
 	@Override
 	public int getRevenueByBusOperator(String busOperatorUsername) {
@@ -184,6 +210,8 @@ public class AdminServiceImpl implements IAdminService{
 		}
 		return i;
 	}
+	
+	//Code end - By Saurabh Dadhich
 	
 }
 

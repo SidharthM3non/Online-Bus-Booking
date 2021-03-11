@@ -30,6 +30,8 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 	@Autowired
 	IBookingRepository bookingRepository;
 	
+	//Code start - By Sidharth Menon
+	
 	//Method to add a Bus into Bus Repository
 	@Override
 	public void addBus(Bus b) {
@@ -76,6 +78,10 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 		return monthlyRevenue;
 	}
 	
+	//Code end - By Sidharth Menon
+	
+	//Code start - By Saurabh Dadhich
+	
 	//Method to retrieve the yearly revenue generated from a particular Bus Route
 	@Override
 	public int getYearlyRevenueByBusRoute(String routeName, String year){
@@ -106,5 +112,7 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 		BusOperator busOperator = busOperatorRepository.findByPassword(oldPassword);
 		busOperator.setPassword(newPassword); //Updating the password using setters
 	}
+	
+	//Code end - By Saurabh Dadhich
 	
 }

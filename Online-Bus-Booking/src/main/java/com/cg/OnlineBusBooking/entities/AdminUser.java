@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By All
+
 //Entity Creation with annotation
 @Entity
 public class AdminUser {
@@ -17,9 +21,12 @@ public class AdminUser {
 	int id;
 	
 	//fields (or) columns
-	String adminUsername;
-	String password;
-	ArrayList<Integer> caseNumber;
+	@ApiModelProperty(notes = "Username of admin")
+	private String adminUsername;
+	@ApiModelProperty(notes = "password")
+	private String password;
+	@ApiModelProperty(notes = "List of case numbers")
+	private ArrayList<Integer> caseNumber;
 	
 	//Non-parameterized constructor
 	public AdminUser(){
@@ -59,5 +66,7 @@ public class AdminUser {
 	public void setCaseNumber(ArrayList<Integer> caseNumber) {
 		this.caseNumber = caseNumber;
 	}
+	
+	//Code end - By All
 	
 }

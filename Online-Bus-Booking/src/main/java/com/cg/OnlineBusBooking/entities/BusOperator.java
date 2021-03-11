@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By Saurabh Dadhich & Sidharth Menon
+
 //Entity Creation with annotation
 @Entity
 public class BusOperator {
@@ -19,12 +23,16 @@ public class BusOperator {
 	int id;
 	
 	//fields (or) columns
-	String busOperatorUsername;
-	String password;
-	ArrayList<Integer> caseNumber;
+	@ApiModelProperty(notes = "Username for Bus Operator")
+	private String busOperatorUsername;
+	@ApiModelProperty(notes = "password for Bus Operator")
+	private String password;
+	@ApiModelProperty(notes = "List of case numbers for Bus Operator")
+	private ArrayList<Integer> caseNumber;
 	
 	//Unidirectional mapping to Bus table
 	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ApiModelProperty(notes = "Bus for Bus Operator [Bus ID]")
 	Bus bus;
 	
 	//Non-parameterized constructor
@@ -72,5 +80,7 @@ public class BusOperator {
 	public void setBus(Bus bus) {
 		this.bus = bus;
 	}
+	
+//Code end - By Saurabh Dadhich & Sidharth Menon
 	
 }

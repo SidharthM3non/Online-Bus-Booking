@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By All	
+
 //Entity Creation with annotation
 @Entity
 public class Passenger {
@@ -16,16 +20,24 @@ public class Passenger {
 	int id;
 	
 	//fields (or) columns
-	String username;
-	String firstName;
-	String lastName;
-	long phoneNumber;
-	String email;
-	long identityDocNumber;
-	String identityDocName;
+	@ApiModelProperty(notes = "Username")
+	private String username;
+	@ApiModelProperty(notes = "First name")
+	private String firstName;
+	@ApiModelProperty(notes = "Last name")
+	private String lastName;
+	@ApiModelProperty(notes = "Phone number of user")
+	private long phoneNumber;
+	@ApiModelProperty(notes = "E-Mail of user")
+	private String email;
+	@ApiModelProperty(notes = "Unique document ID")
+	private long identityDocNumber;
+	@ApiModelProperty(notes = "Unique document name")
+	private String identityDocName;
 	
 	//Unidirectional mapping to Booking table
 	@ManyToOne
+	@ApiModelProperty(notes = "Booking ID for the passenger [Booking ID]")
 	Booking booking;  //many passengers for in 1 booking
 	
 	//Non-parameterized constructor
@@ -101,6 +113,8 @@ public class Passenger {
 	}
 	public void setBooking(Booking booking) {
 		this.booking = booking;
-	}	
+	}
+	
+//Code end - By All		
 	
 }

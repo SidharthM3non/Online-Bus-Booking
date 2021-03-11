@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By All
+
 //Entity Creation with annotation
 @Entity
 public class BusOperatorRequest {
@@ -20,19 +24,27 @@ public class BusOperatorRequest {
 	int id;
 	
 	//fields (or) columns
-	int caseNumber;
-	String busOperatorUsername;
-	String requestMsg;
-	String requestFor;
-	boolean status;
-	LocalDate requestDate;
+	@ApiModelProperty(notes = "Case number for Bus Operator Request")
+	private int caseNumber;
+	@ApiModelProperty(notes = "Username for Bus Operator")
+	private String busOperatorUsername;
+	@ApiModelProperty(notes = "Request message of Bus Operator")
+	private String requestMsg;
+	@ApiModelProperty(notes = "Requesting for")
+	private String requestFor;
+	@ApiModelProperty(notes = "Request status")
+	private boolean status;
+	@ApiModelProperty(notes = "Date of request [YYYY-MM-DD]")
+	private LocalDate requestDate;
 	
 	//Unidirectional mapping to Bus table
 	@OneToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "Bus for Bus Operator Request [Bus ID]")
 	Bus bus;
 	
 	//Unidirectional mapping to BusOperator table
 	@ManyToOne(cascade = CascadeType.ALL)
+	@ApiModelProperty(notes = "BusOperator for Bus Operator Request [BusOperator ID]")
 	BusOperator busOperator;
 	
 	//Non-parameterized constructor
@@ -109,5 +121,7 @@ public class BusOperatorRequest {
 	public void setRequestDate(LocalDate requestDate) {
 		this.requestDate = requestDate;
 	}
+	
+//Code end - By All	
 	
 }

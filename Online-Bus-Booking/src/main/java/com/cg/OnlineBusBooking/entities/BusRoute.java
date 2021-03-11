@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By All	
+
 //Entity Creation with annotation
 @Entity
 public class BusRoute {
@@ -19,12 +23,16 @@ public class BusRoute {
 	int id;
 	
 	//fields (or) columns
-	String routeName;
-	String source;
-	String destination;
+	@ApiModelProperty(notes = "Route name")
+	private String routeName;
+	@ApiModelProperty(notes = "Source location")
+	private String source;
+	@ApiModelProperty(notes = "Destination location")
+	private String destination;
 	
 	//bidirectional mapping to Bus table
 	@OneToMany(mappedBy = "busRoute", cascade = {CascadeType.ALL})
+	@ApiModelProperty(notes = "Bus for the Bus Route [Bus ID]")
 	List<Bus> bus;
 	
 	//Non-parameterized constructor
@@ -65,5 +73,7 @@ public class BusRoute {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+	
+//Code end - By All		
 	
 }

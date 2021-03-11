@@ -27,6 +27,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import javassist.NotFoundException;
 
+//Code start - By All
+
 @RestController
 @RequestMapping(path = "api/v1/admin") //URL specification before every method
 @Api(value = "Admin", tags = { "AdminAPI" })
@@ -188,4 +190,6 @@ public class AdminController {
 		return adminService.getRevenueByBusOperator(busOperatorUsername);
 	}
 
+	//Code start - By All	
+	
 }

@@ -14,6 +14,10 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import io.swagger.annotations.ApiModelProperty;
+
+//Code start - By All
+
 //Entity Creation with annotation
 @Entity
 public class Bus {
@@ -25,13 +29,16 @@ public class Bus {
 	int id;
 	
 	//fields (or) columns
-	String busNumber;
-	int totalSeats;
-	int fare;
+	@ApiModelProperty(notes = "Bus Number")
+	private String busNumber;
+	@ApiModelProperty(notes = "The total number of seats in bus")
+	private int totalSeats;
+	@ApiModelProperty(notes = "the fare for on ticket")
+	private int fare;
 	
-////	//bidirectional mapping to Bus table
+	//bidirectional mapping to Bus table
 	@OneToMany(mappedBy = "bus", cascade = {CascadeType.ALL})
-////	//@JoinColumn(name = "bus_operator")
+	@ApiModelProperty(notes = "BusOperator for Bus [BusOperator ID]")
 	List<BusOperator> busOperator;
 	
 //	@ManyToOne(cascade = CascadeType.ALL)
@@ -41,6 +48,7 @@ public class Bus {
 	//bidirectional mapping to BusRoute table
 	@ManyToOne
 	@JoinColumn(name = "busRoute")
+	@ApiModelProperty(notes = "BusRoute for Bus [BusRoute ID]")
 	BusRoute busRoute;
 
 	//Non-parameterized constructor
@@ -96,5 +104,6 @@ public class Bus {
 		this.busOperator = busOperator;
 	}
 	
+//Code end - By All	
 	
 }
