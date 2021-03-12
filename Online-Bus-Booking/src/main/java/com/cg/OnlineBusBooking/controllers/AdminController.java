@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,6 +35,9 @@ import javassist.NotFoundException;
 @RequestMapping(path = "api/v1/admin") //URL specification before every method
 @Api(value = "Admin", tags = { "AdminAPI" })
 public class AdminController {
+	
+	static final Logger log = 
+	        LoggerFactory.getLogger(AdminController.class);
 	
 	//Dependency Injection
 	@Autowired

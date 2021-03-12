@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,6 @@ import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
 import com.cg.OnlineBusBooking.entities.BusOperatorRequest;
 import com.cg.OnlineBusBooking.entities.BusRoute;
-import com.cg.OnlineBusBooking.entities.Feedback;
 import com.cg.OnlineBusBooking.exceptions.BusDoesnotExistException;
 import com.cg.OnlineBusBooking.repositories.IAdminRepository;
 import com.cg.OnlineBusBooking.repositories.IBookingRepository;
@@ -26,6 +27,9 @@ import com.cg.OnlineBusBooking.serviceinterfaces.IAdminService;
 
 @Service
 public class AdminServiceImpl implements IAdminService{
+	
+	static final Logger log = 
+	        LoggerFactory.getLogger(AdminServiceImpl.class);
 	
 	//Dependency injections of required repositories
 	
