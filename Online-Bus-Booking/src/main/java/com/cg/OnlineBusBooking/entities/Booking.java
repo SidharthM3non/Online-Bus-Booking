@@ -50,17 +50,17 @@ public class Booking {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	@ApiModelProperty(notes = "User for booking [User ID]")
-	User user; //many bookings can be done by 1 user  or 1 user can book many bookings
+	private User user; //many bookings can be done by 1 user  or 1 user can book many bookings
 	
 	//Unidirectional mapping to BusRoute table
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ApiModelProperty(notes = "Bus route for booking [BusRoute ID]")
-	BusRoute busRoute;
+	private BusRoute busRoute;
 	
 	//Unidirectional mapping to Bus table
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ApiModelProperty(notes = "Bus for booking [Bus ID]")
-	Bus bus;
+	private Bus bus;
 	
 	//Non-parameterized constructor
 	public Booking() {
@@ -84,6 +84,22 @@ public class Booking {
 		this.user=user;
 		this.busRoute=busRoute;
 		this.bus=bus;
+	}
+	
+
+	public Booking(long bookingId, String username, String busNumber, String source, String destination,
+			int numberOfSeats, int amountPaid, LocalDate date, LocalTime journeyStartTime, LocalTime journeyEndTime) {
+		super();
+		this.bookingId = bookingId;
+		this.username = username;
+		this.busNumber = busNumber;
+		this.source = source;
+		this.destination = destination;
+		this.numberOfSeats = numberOfSeats;
+		this.amountPaid = amountPaid;
+		this.date = date;
+		this.journeyStartTime = journeyStartTime;
+		this.journeyEndTime = journeyEndTime;
 	}
 
 	//Getters and Setters

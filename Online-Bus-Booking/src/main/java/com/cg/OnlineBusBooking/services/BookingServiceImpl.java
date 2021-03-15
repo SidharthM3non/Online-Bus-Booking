@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import com.cg.OnlineBusBooking.repositories.IUserRepository;
 import com.cg.OnlineBusBooking.serviceinterfaces.IBookingService;
 
 @Service
+@Transactional
 public class BookingServiceImpl implements IBookingService {
 	
 	static final Logger log = 
@@ -140,15 +143,15 @@ public class BookingServiceImpl implements IBookingService {
 		Booking b = null;
 		User u = null;
 		if(b1.isPresent()) {
-			b = b1.get();
+			throw new BookingAlreadyExistException("Booking already exist");		
+		} 
+		else {
+			b = booking;
 			u = user.get();
 			b.setBus(bus);
 			b.setUser(u);
 			b.setBusRoute(bus.getBusRoute());
-			bookingRepository.save(booking);
-		} 
-		else {
-			throw new BookingAlreadyExistException("Booking already exist");
+			bookingRepository.save(b);
 		}
 		return booking.getBookingId();
 	}

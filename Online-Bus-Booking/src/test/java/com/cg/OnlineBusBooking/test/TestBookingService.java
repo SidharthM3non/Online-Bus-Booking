@@ -18,7 +18,7 @@ class TestBookingService {
 	
 //	@Test
 	void testAddBooking() {
-		Booking b = new Booking(123,"Ramesh","XYZ123","C","D",3,300,null,null,null,null,null,null);
+		Booking b = new Booking(98761,"HIJ","4123","A","B",1,15,null,null,null,null,null,null);
 		bookingService.addBooking(b);
 	}
 
@@ -61,9 +61,9 @@ class TestBookingService {
 //	@Test
 	void testAddFeedbackUserLong() {
 		User user = new User();
-		user.setUsername("Ravi");
-		user.setPassword("Ravi123");
-		bookingService.addFeedback(user, 45);
+		user.setUsername("HIJ");
+		user.setPassword("pass123word");
+		bookingService.addFeedback(user, 98761);
 	}
 
 //	@Test
