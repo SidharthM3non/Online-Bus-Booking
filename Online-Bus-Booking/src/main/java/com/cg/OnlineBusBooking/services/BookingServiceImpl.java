@@ -67,13 +67,13 @@ public class BookingServiceImpl implements IBookingService {
 	
 	//Method to update a booking date by its ID
 	@Override
-	public boolean updateBookingDate(long bookingId) {
+	public boolean updateBookingDate(long bookingId, LocalDate date) {
 		boolean result = false;
 		Optional<Booking> b = bookingRepository.findByBookingId(bookingId);
 		Booking b1 = null;
 		if(b.isPresent()) {
 			b1 = b.get();
-			b1.setDate(LocalDate.now());
+			b1.setDate(date);
 			result = true;
 		}
 		return result;

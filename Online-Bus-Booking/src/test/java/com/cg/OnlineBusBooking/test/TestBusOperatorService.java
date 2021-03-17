@@ -31,38 +31,40 @@ class TestBusOperatorService {
 	@Test
 	void getRevenueByBusRouteAndDate() {
 		String routeName = "AtoB";
-		LocalDate date = LocalDate.now();
+		LocalDate date = LocalDate.parse("2021-03-11");
 		busOperatorService.getRevenueByBusRouteAndDate(routeName, date);
 	}
 	
 	@Test
 	void getMonthlyRevenueByBusRoute()
 	{
-		String routeName="A to B";
+		String routeName="AtoB";
 		String month="3";
 		String year = "2021";
 		busOperatorService.getMonthlyRevenueByBusRoute(routeName, month, year);
 	}
+	
 	@Test
 	void getYearlyRevenueByBusRoute()
 	{
-		String routeName="A to B";
+		String routeName="AtoB";
 		String year="2021";
 		busOperatorService.getYearlyRevenueByBusRoute(routeName, year);
 	}
 	
-	@Test
+//	@Test
 	void addBusOperator()
 	{
-		BusOperator busOp=new BusOperator("Sid","123",null,null);
+		Bus bus = new Bus("1122",30,15);
+		BusOperator busOp=new BusOperator("Sid","123",null, bus);
 		busOperatorService.addBusOperator(busOp);
 	}
 	
-	@Test
+	//@Test
 	void updatePassword()
 	{
-		String oldPassword="dad";
-		String newPassword="mom-dad";
+		String oldPassword="ravipass12";
+		String newPassword="ravipassword";
 		busOperatorService.updatePassword(oldPassword, newPassword);
 	}
 }

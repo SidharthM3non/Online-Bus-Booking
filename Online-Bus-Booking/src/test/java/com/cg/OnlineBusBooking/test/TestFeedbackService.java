@@ -17,29 +17,25 @@ class TestFeedbackService {
 	@Test
 	void testAddFeedback() {
 		Feedback feedback = new Feedback();
-		feedback.setRouteName("A to B");
-		feedback.setUsername("Arijith");
+		feedback.setRouteName("AtoB");
+		feedback.setUsername("HIJ");
 		feedback.setRating(5);
 		feedbackService.addFeedback(feedback);
 	}
 
 	@Test
 	void testViewAllFeedbacksStringBusOperator() {
-		BusOperator busOperator = new BusOperator();
-		busOperator.setBusOperatorUsername("Ravi");
-		busOperator.setPassword("Ravi123");
-		feedbackService.viewAllFeedbacks("A to B", busOperator);
+		BusOperator busOperator = new BusOperator("Ravi","ravipass12",null);
+		feedbackService.viewAllFeedbacks("AtoB", busOperator);
 	}
 
 	@Test
 	void testViewAllFeedbacksBusOperator() {
-		BusOperator busOperator = new BusOperator();
-		busOperator.setBusOperatorUsername("Ravi");
-		busOperator.setPassword("Ravi123");
+		BusOperator busOperator = new BusOperator("Ravi","ravipass12",null);
 		feedbackService.viewAllFeedbacks(busOperator);
 	}
 
-	@Test
+	//@Test
 	void testGetAllFeedbacks() {
 		feedbackService.getAllFeedbacks();
 	}

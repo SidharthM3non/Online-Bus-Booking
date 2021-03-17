@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,15 +25,44 @@ import com.cg.OnlineBusBooking.entities.Feedback;
 import com.cg.OnlineBusBooking.entities.User;
 import com.cg.OnlineBusBooking.exceptions.BookingAlreadyExistException;
 import com.cg.OnlineBusBooking.exceptions.BookingNotFoundException;
+import com.cg.OnlineBusBooking.repositories.IBookingRepository;
 import com.cg.OnlineBusBooking.serviceinterfaces.IBookingService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import javassist.NotFoundException;
 
+
+class Message{
+	String text;
+	List<Booking> bookings;
+	
+
+	public Message(String text) {
+		super();
+		this.text = text;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}	
+}
 //Code start - By Sajin S & Sadathulla Shariff
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/v1/bookings") //URL specification before every method
 @Api(value = "Booking", tags = { "BookingAPI" })
 public class BookingController {
@@ -43,6 +73,9 @@ public class BookingController {
 	//Dependency Injection
 	@Autowired
 	IBookingService bookingService;
+	
+	@Autowired
+	IBookingRepository bookingRepository;
 	
 	/**
 	 * This method is for adding a booking
@@ -64,12 +97,13 @@ public class BookingController {
 	 * @return boolean
 	 * @throws BookingNotFoundException
 	 */
-	@PutMapping("/update/{bookingId}")
+	@PutMapping("/update/{bookingId}/{date}")
 	@ResponseStatus(HttpStatus.OK)
 	@Transactional
 	@ApiOperation(value = "Update a booking date", notes = "Provide date in YYYY-MM-DD format", response = Booking.class)
-	public boolean updateBookingDate (@PathVariable("bookingId") long bookingId) {
-		return bookingService.updateBookingDate(bookingId);
+	public boolean updateBookingDate (@PathVariable("bookingId") long bookingId, @PathVariable String date) {
+		LocalDate date1 = LocalDate.parse(date);
+		return bookingService.updateBookingDate(bookingId, date1);
 	}
 	
 	/**
@@ -82,8 +116,12 @@ public class BookingController {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiOperation(value = "Delete a booking", response = Booking.class)
-	public boolean deleteBooking(@PathVariable("id") long id) {
-		return bookingService.deleteBooking(id);
+	public Message deleteBooking(@PathVariable("id") long id) {
+		bookingService.deleteBooking(id);
+		Message message = new Message("Booking successfully deleted");
+		List<Booking> bookings = bookingRepository.findAll();
+		message.setBookings(bookings);
+		return message;
 	}
 	
 	/**
@@ -181,7 +219,7 @@ public class BookingController {
 	public void addFeedback(@PathVariable("username") String username, @PathVariable("bookingId") long bookingId, @RequestBody String comment) {
 		bookingService.addFeedback(username, bookingId, comment);
 	}
-
+	
 	//Code end - By Sajin S & Sadathulla Shariff	
 	
 }

@@ -15,7 +15,7 @@ class TestUserService {
 	@Autowired
 	IUserService userService;
 	
-	@Test
+	//@Test
 	void testAddUser() {
 		User user = new User();
 		user.setUsername("Ramesh");
@@ -23,19 +23,14 @@ class TestUserService {
 		userService.addUser(user);
 	}
 
-	@Test
+//	@Test
 	void testDeleteUser() {
-		userService.deleteUser("Ravi");
+		userService.deleteUser("DEF");
 	}
 
-	@Test
+//	@Test
 	void testUpdateUser() {
-		userService.updateUser("Ravi","Ravi567");
-	}
-
-	@Test
-	void testGetAllUsers() {
-		fail("Not yet implemented");
+		userService.updateUser("HIJ","Ravi567");
 	}
 
 }

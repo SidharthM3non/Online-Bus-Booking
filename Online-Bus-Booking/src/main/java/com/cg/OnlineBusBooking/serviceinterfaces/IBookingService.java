@@ -13,7 +13,7 @@ public interface IBookingService {
 	
 	public long addBooking(Booking booking);
 	
-	public boolean updateBookingDate(long bookingId);
+	public boolean updateBookingDate(long bookingId, LocalDate date);
 
 	public boolean deleteBooking (long bookingid);
 

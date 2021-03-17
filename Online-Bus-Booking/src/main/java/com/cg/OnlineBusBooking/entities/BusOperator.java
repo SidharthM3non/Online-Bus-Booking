@@ -49,6 +49,13 @@ public class BusOperator {
 		this.bus = bus;
 	}
 	
+	public BusOperator(String busOperatorUsername, String password, ArrayList<Integer> caseNumber) {
+		super();
+		this.busOperatorUsername = busOperatorUsername;
+		this.password = password;
+		this.caseNumber = caseNumber;
+	}
+
 	//Getters and Setters
 	public int getId() {
 		return id;

@@ -68,7 +68,7 @@ public class UserController {
 	 * @param String, String
 	 * @throws UserNotFoundException
 	 */
-	@PutMapping("/update/{username}:{password}")
+	@PutMapping("/update/{username}/{password}")
 	@Transactional
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "Update a user passwoord", notes = "Provide old and new password", response = User.class)

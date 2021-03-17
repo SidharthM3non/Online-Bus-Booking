@@ -1,6 +1,7 @@
 package com.cg.OnlineBusBooking.test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,59 +17,63 @@ class TestBookingService {
 	@Autowired
 	IBookingService bookingService;
 	
-//	@Test
+	//@Test
 	void testAddBooking() {
-		Booking b = new Booking(98761,"HIJ","4123","A","B",1,15,null,null,null,null,null,null);
+		LocalDate bDate = LocalDate.now();
+		LocalTime startTime = LocalTime.now();
+		LocalTime endTime = LocalTime.now();
+		Booking b = new Booking(111111,"HIJ","4123","A","B",1,15,bDate,startTime,endTime);
 		bookingService.addBooking(b);
 	}
 
-//	@Test
+	//@Test
 	void testUpdateBookingDate() {
-		bookingService.updateBookingDate(45);
+		LocalDate date = LocalDate.now();
+		bookingService.updateBookingDate(98761, date);
 	}
 
-//	@Test
+	//@Test
 	void testDeleteBooking() {
-		bookingService.deleteBooking(45);
+		bookingService.deleteBooking(111111);
 	}
 
-//	@Test
+	@Test
 	void testGetBookingDetailsById() {
-		bookingService.getBookingDetailsById(45);
+		bookingService.getBookingDetailsById(123451);
 	}
 
-//	@Test
+	//@Test
 	void testGetAllBookingByDate() {
-		LocalDate date = LocalDate.parse("2021-03-02");
+		LocalDate date = LocalDate.parse("2021-03-11");
 		bookingService.getAllBookingByDate(date);
 	}
 
-//	@Test
+	//@Test
 	void testGetAllBookingByBusRoute() {
-		bookingService.getAllBookingByBusRoute("A to B");
+		bookingService.getAllBookingByBusRoute("AtoB");
 	}
 
-//	@Test
+	//@Test
 	void testGetFeedbackByBusRoute() {
-		bookingService.getFeedbackByBusRoute("A to B");
+		bookingService.getFeedbackByBusRoute("AtoB");
 	}
 
-//	@Test
+	//@Test
 	void testFindAllBookings() {
 		bookingService.findAllBookings();
 	}
 
-//	@Test
+	@Test
 	void testAddFeedbackUserLong() {
 		User user = new User();
 		user.setUsername("HIJ");
 		user.setPassword("pass123word");
-		bookingService.addFeedback(user, 98761);
+		bookingService.addFeedback(user, 123451);
 	}
 
-//	@Test
+	//@Test
 	void testAddFeedbackStringLongString() {
-		bookingService.addFeedback("Ravi", 45, "Good ride");
+		bookingService.addFeedback("ABC", 443141, "Good ride");
 	}
 
 }
