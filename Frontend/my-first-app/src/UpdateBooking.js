@@ -10,17 +10,17 @@ export default class UpdateBooking extends Component {
     }
 
     updateBookingDate(event){
-        console.log('method for updating Booking date', this.bookingId.current.value);
+        console.log('method for updating Booking date', this.props.match.params.id);
         console.log('method for updating Booking date', this.date.current.value);
         event.preventDefault();
 
-        const url = 'http://localhost:80/api/v1/bookings/update/' + this.bookingId.current.value + '/' + this.date.current.value;
+        const url = 'http://localhost:80/api/v1/bookings/update/' + this.props.match.params.id + '/' + this.date.current.value;
         fetch(url, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({bookingId: this.bookingId.current.value, date: this.date.current.value})})
+            body: JSON.stringify({bookingId: this.props.match.params.id, date: this.date.current.value})})
             .then(response =>{
                 console.log(response.status);
                 if(response.status === 200){
@@ -40,7 +40,7 @@ export default class UpdateBooking extends Component {
                 <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon1">Booking ID</span>
                 </div>
-                <input type="text" ref={this.bookingId} className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="text" value={this.props.match.params.id} disabled className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
 
                 <div className="input-group mb-3">

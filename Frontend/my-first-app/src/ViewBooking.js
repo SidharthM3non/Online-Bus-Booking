@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {
+    Link
+  } from "react-router-dom";
 
 const booking = [];
 
@@ -42,17 +45,18 @@ export default class ViewEmployee extends Component {
             return (
                 <tr key={i}>
                     <td>{booking.id}</td>
-                    <td>{booking.bookingId}</td>
+                    <td><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></td>
                     <td>{booking.username}</td>
                     <td>{booking.busNumber}</td>
                     <td>{booking.source}</td>
                     <td>{booking.destination}</td>
                     <td>{booking.numberOfSeats}</td>
                     <td>{booking.amountPaid}</td>
-                    <td>{booking.date}</td>
+                    {/* <td>{booking.date}</td>
                     <td>{booking.journeyStartTime}</td>
-                    <td>{booking.journeyEndTime}</td>
-                    <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}> X </button></td>
+                    <td>{booking.journeyEndTime}</td> */}
+                    <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}> X </button>
+                    <Link to={"/update/" + booking.bookingId}><button type="button" className="btn btn-primary">Update</button></Link></td>
                 </tr>
             )
         })
@@ -72,9 +76,9 @@ export default class ViewEmployee extends Component {
                             <th scope="col">Destination</th>
                             <th scope="col">Number of Seats</th>
                             <th scope="col">Amount Paid</th>
-                            <th scope="col">Date</th>
+                            {/* <th scope="col">Date</th>
                             <th scope="col">Start Time</th>
-                            <th scope="col">End Time</th>
+                            <th scope="col">End Time</th> */}
                         </tr>
                     </thead>
                     <tbody>

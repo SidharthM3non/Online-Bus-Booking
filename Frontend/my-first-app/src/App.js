@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import DetailViewBooking from './DetailViewBooking';
 
 // const courses = [
 //   {title: "React", summary:"library from facebook..."},
@@ -20,32 +21,26 @@ function App() {
 
   return (
     <Router>
-    <div>
-        <ul>
-          <li>
-            <Link to="/">View Booking</Link>
+        <ul className="nav justify-content-center">
+          <li className="nav-item">
+            <Link to="/" className="nav-link active">View Booking</Link>
           </li>
-          <li>
-            <Link to="/add">Add Booking</Link>
-          </li>
-          <li>
-            <Link to="/update">Update Booking</Link>
+          <li className="nav-item">
+          <Link to="/add" className="nav-link">Add Booking</Link>
           </li>
         </ul>
-        <hr/>
-      <Switch>
+        <hr />
+        <Switch>
           <Route exact path="/">
             <ViewBooking />
           </Route>
           <Route path="/add">
             <AddBooking />
           </Route>
-          <Route path="/update">
-            <UpdateBooking />
-          </Route>
+          <Route path="/update/:id" component={UpdateBooking} />
+          <Route path="/detailview/:id" component={DetailViewBooking} />
         </Switch>
-    </div>
-  </Router>
+    </Router>
   );
 }
 
