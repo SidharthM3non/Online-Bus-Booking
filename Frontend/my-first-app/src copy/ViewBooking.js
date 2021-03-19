@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import {
     Link
   } from "react-router-dom";
-import { connect } from 'react-redux';
 
 const booking = [];
 
-class ViewBooking extends Component {
+export default class ViewEmployee extends Component {
 
     constructor(){
         super();
@@ -15,14 +14,14 @@ class ViewBooking extends Component {
 
     componentDidMount() {
         console.log('Initialization...')
-        // fetch('http://localhost:80/api/v1/bookings/')
-        //     .then(response => response.json())
-        //     .then(
-        //         data => {
-        //             console.log(data)
-        //             this.setState({bookings:data})
-        //         }
-        //     );
+        fetch('http://localhost:80/api/v1/bookings/')
+            .then(response => response.json())
+            .then(
+                data => {
+                    console.log(data)
+                    this.setState({bookings:data})
+                }
+            );
     }
     
     deleteBooking(bookingId){
@@ -42,7 +41,7 @@ class ViewBooking extends Component {
 
     render() {
 
-        var bookingList = this.props.bookings.map((booking, i)=>{
+        var bookingList = this.state.bookings.map((booking, i)=>{
             return (
                 <tr key={i}>
                     <td>{booking.id}</td>
@@ -90,14 +89,3 @@ class ViewBooking extends Component {
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    console.log('State is:: ', state)
-    return {
-        bookings: state.bookings
-    }
-}
-
-
-// export default ViewBooking;
-export default connect(mapStateToProps)(ViewBooking);

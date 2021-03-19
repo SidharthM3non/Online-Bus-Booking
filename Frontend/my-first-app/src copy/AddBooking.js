@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
 
-class AddBooking extends Component {
+export default class AddBooking extends Component {
 
     constructor(){
         super();
@@ -31,27 +30,22 @@ class AddBooking extends Component {
         console.log('method for adding Booking', this.journeyEndTime.current.value)
         event.preventDefault();
 
-        this.props.onAddBooking({id: 0, bookingId: this.bookingId.current.value, username: this.username.current.value, busNumber: this.busNumber.current.value,
-        source: this.source.current.value, destination: this.destination.current.value, numberOfSeats: this.numberOfSeats.current.value,
-    amountPaid: this.amountPaid.current.value, date: this.date.current.value, journeyStartTime: this.journeyStartTime.current.value,
-journeyEndTime: this.journeyEndTime.current.value});
-
-    //     const url = 'http://localhost:80/api/v1/bookings/';
-    //     fetch(url, {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({bookingId: this.bookingId.current.value, username: this.username.current.value,
-    //         busNumber: this.busNumber.current.value, source: this.source.current.value, destination: this.destination.current.value,
-    //     numberOfSeats: this.numberOfSeats.current.value, amountPaid: this.amountPaid.current.value, date: this.date.current.value,
-    // journeyStartTime: this.journeyStartTime.current.value, journeyEndTime: this.journeyEndTime.current.value})})
-    //     .then(response => {
-    //         console.log(response.status);
-    //         if(response.status === 201){
-    //             this.setState({message: 'Booking inserted sucessfully!'})
-    //         }
-    //     })
+        const url = 'http://localhost:80/api/v1/bookings/';
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({bookingId: this.bookingId.current.value, username: this.username.current.value,
+            busNumber: this.busNumber.current.value, source: this.source.current.value, destination: this.destination.current.value,
+        numberOfSeats: this.numberOfSeats.current.value, amountPaid: this.amountPaid.current.value, date: this.date.current.value,
+    journeyStartTime: this.journeyStartTime.current.value, journeyEndTime: this.journeyEndTime.current.value})})
+        .then(response => {
+            console.log(response.status);
+            if(response.status === 201){
+                this.setState({message: 'Booking inserted sucessfully!'})
+            }
+        })
         
     }
 
@@ -137,21 +131,3 @@ journeyEndTime: this.journeyEndTime.current.value});
         )
     }
 }
-
-// export default AddBooking;
-
-const mapStateToProps = (state) => {
-    return {
-        // message: state.booking.message,
-        // bookings: state.bookings
-    }
-}
-
-const mapDispatchToState = (dispatch) => {
-    return {
-        onAddBooking: (payload) => dispatch({type: "ADD_BOOKING", payload: payload})
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToState)(AddBooking);
