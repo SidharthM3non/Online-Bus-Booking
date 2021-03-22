@@ -1,7 +1,7 @@
-import AddBooking from './AddBooking';
+import AddBooking from './components/AddBooking';
 import './App.css';
-import UpdateBooking from './UpdateBooking';
-import ViewBooking from './ViewBooking';
+import UpdateBooking from './components/UpdateBooking';
+import ViewBooking from './components/ViewBooking';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -10,6 +10,7 @@ import {
   Link
 } from "react-router-dom";
 import DetailViewBooking from './DetailViewBooking';
+
 
 // const courses = [
 //   {title: "React", summary:"library from facebook..."},

@@ -3,8 +3,8 @@ import {
     Link
   } from "react-router-dom";
 import { connect } from 'react-redux';
+import * as actions from '../actions/action'
 
-const booking = [];
 
 class ViewBooking extends Component {
 
@@ -15,6 +15,7 @@ class ViewBooking extends Component {
 
     componentDidMount() {
         console.log('Initialization...')
+        this.props.onFetchBookings()
         // fetch('http://localhost:80/api/v1/bookings/')
         //     .then(response => response.json())
         //     .then(
@@ -24,21 +25,23 @@ class ViewBooking extends Component {
         //         }
         //     );
     }
-    
-    deleteBooking(bookingId){
-        console.log('Deleting booking ...' , bookingId)
-        const url = 'http://localhost:80/api/v1/bookings/' + bookingId
-        fetch(url, {
-            method: "DELETE"
-        })
-        .then(response => response.json())
-        .then(
-            data => {
-                console.log(data)
-                this.setState({bookings:data.bookings, message:data.text})
-            }
-        );
+    deleteBooking(bookingId) {
+        return this.props.onDeleteBooking(bookingId)
     }
+    // deleteBooking(bookingId){
+    //     console.log('Deleting booking ...' , bookingId)
+    //     const url = 'http://localhost:80/api/v1/bookings/' + bookingId
+    //     fetch(url, {
+    //         method: "DELETE"
+    //     })
+    //     .then(response => response.json())
+    //     .then(
+    //         data => {
+    //             console.log(data)
+    //             this.setState({bookings:data.bookings, message:data.text})
+    //         }
+    //     );
+    // }
 
     render() {
 
@@ -56,7 +59,7 @@ class ViewBooking extends Component {
                     {/* <td>{booking.date}</td>
                     <td>{booking.journeyStartTime}</td>
                     <td>{booking.journeyEndTime}</td> */}
-                    <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}> X </button>
+                    <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</button>
                     <Link to={"/update/" + booking.bookingId}><button type="button" className="btn btn-primary">Update</button></Link></td>
                 </tr>
             )
@@ -92,12 +95,18 @@ class ViewBooking extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('State is:: ', state)
+
     return {
         bookings: state.bookings
     }
 }
 
+const mapDispatchToState = (dispatch) => {
+    return {
+        onFetchBookings: () => dispatch(actions.fetchBookings()), 
+        onDeleteBooking: (bookingId) => dispatch(actions.deleteBooking(bookingId)) 
+    }
+}
 
 // export default ViewBooking;
-export default connect(mapStateToProps)(ViewBooking);
+export default connect(mapStateToProps, mapDispatchToState)(ViewBooking);

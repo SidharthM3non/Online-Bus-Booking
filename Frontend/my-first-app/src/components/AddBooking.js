@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import * as actions from '../actions/action'
 
 class AddBooking extends Component {
 
@@ -19,16 +20,16 @@ class AddBooking extends Component {
     }
 
     addBooking(event){
-        console.log('method for adding Booking', this.bookingId.current.value)
-        console.log('method for adding Booking', this.username.current.value)
-        console.log('method for adding Booking', this.busNumber.current.value)
-        console.log('method for adding Booking', this.source.current.value)
-        console.log('method for adding Booking', this.destination.current.value)
-        console.log('method for adding Booking', this.numberOfSeats.current.value)
-        console.log('method for adding Booking', this.amountPaid.current.value)
-        console.log('method for adding Booking', this.date.current.value)
-        console.log('method for adding Booking', this.journeyStartTime.current.value)
-        console.log('method for adding Booking', this.journeyEndTime.current.value)
+        console.log('Booking ID', this.bookingId.current.value)
+        console.log('Username', this.username.current.value)
+        console.log('Bus Number', this.busNumber.current.value)
+        console.log('Source', this.source.current.value)
+        console.log('Destination', this.destination.current.value)
+        console.log('Number of seats', this.numberOfSeats.current.value)
+        console.log('Amount Paid', this.amountPaid.current.value)
+        console.log('Date', this.date.current.value)
+        console.log('Start time', this.journeyStartTime.current.value)
+        console.log('End time', this.journeyEndTime.current.value)
         event.preventDefault();
 
         this.props.onAddBooking({id: 0, bookingId: this.bookingId.current.value, username: this.username.current.value, busNumber: this.busNumber.current.value,
@@ -142,14 +143,14 @@ journeyEndTime: this.journeyEndTime.current.value});
 
 const mapStateToProps = (state) => {
     return {
-        // message: state.booking.message,
+        message: state.message,
         // bookings: state.bookings
     }
 }
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onAddBooking: (payload) => dispatch({type: "ADD_BOOKING", payload: payload})
+        onAddBooking: (payload) => dispatch(actions.addBooking(payload))
     }
 }
 
