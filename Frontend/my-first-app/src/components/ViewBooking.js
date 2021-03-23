@@ -25,6 +25,7 @@ const useStyles = ({
       margin: theme.spacing(1),
     },
   }));
+  
 
 class ViewBooking extends Component {
 
@@ -46,7 +47,7 @@ class ViewBooking extends Component {
         const classes = useStyles;
 
         var bookingList = this.props.bookings.map((booking, i)=>{
-            return (
+            return (        
                 <TableRow key={i}>
                     <TableCell align="center">{booking.id}</TableCell>
                     <TableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></TableCell>
@@ -59,7 +60,7 @@ class ViewBooking extends Component {
                     <TableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
                         startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
                     <Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
-                        Update</Button></Link></TableCell>
+                            Update</Button></Link></TableCell>
                 </TableRow>
             )
         })

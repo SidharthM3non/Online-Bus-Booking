@@ -1,4 +1,17 @@
 import React, { Component } from 'react'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = ({
+    table: {
+      minWidth: 650,
+    },
+  });
 
 export default class DetailViewBooking extends Component {
 
@@ -21,29 +34,34 @@ export default class DetailViewBooking extends Component {
     }
 
     render() {
-       
+
         return (
             <div>
-                <h2>Detail View Of Booking</h2>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <h2>Detail View Of Booking</h2></div>
                 <h4>BookingID: {this.state.bookings.bookingId}</h4>
-
-                <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Date of Booking</th>
-                        <th scope="col">Journey Start Time</th>
-                        <th scope="col">Journey End Time </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{this.state.bookings.date}</td>
-                        <td>{this.state.bookings.journeyStartTime}</td>
-                        <td>{this.state.bookings.journeyEndTime}</td>
-                    </tr>
-                </tbody>
-                </table>
-
+                <TableContainer component={Paper}>
+                <Table className="table" aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">Date of Booking</TableCell>
+                            <TableCell align="center">Journey Start Time</TableCell>
+                            <TableCell align="center">Journey End Time</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell align="center">{this.state.bookings.date}</TableCell>
+                            <TableCell align="center">{this.state.bookings.journeyStartTime}</TableCell>
+                            <TableCell align="center">{this.state.bookings.journeyEndTime}</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+                </TableContainer>
             </div>
         )
     }
