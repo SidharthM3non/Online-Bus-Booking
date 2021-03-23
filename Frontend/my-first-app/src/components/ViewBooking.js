@@ -4,7 +4,27 @@ import {
   } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
+import { withStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
+const useStyles = ({
+    table: {
+      minWidth: 650,
+    },
+  },
+  (theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 
 class ViewBooking extends Component {
 
@@ -16,79 +36,91 @@ class ViewBooking extends Component {
     componentDidMount() {
         console.log('Initialization...')
         this.props.onFetchBookings()
-        // fetch('http://localhost:80/api/v1/bookings/')
-        //     .then(response => response.json())
-        //     .then(
-        //         data => {
-        //             console.log(data)
-        //             this.setState({bookings:data})
-        //         }
-        //     );
     }
     deleteBooking(bookingId) {
         return this.props.onDeleteBooking(bookingId)
     }
-    // deleteBooking(bookingId){
-    //     console.log('Deleting booking ...' , bookingId)
-    //     const url = 'http://localhost:80/api/v1/bookings/' + bookingId
-    //     fetch(url, {
-    //         method: "DELETE"
-    //     })
-    //     .then(response => response.json())
-    //     .then(
-    //         data => {
-    //             console.log(data)
-    //             this.setState({bookings:data.bookings, message:data.text})
-    //         }
-    //     );
-    // }
 
     render() {
 
+        const classes = useStyles;
+
         var bookingList = this.props.bookings.map((booking, i)=>{
             return (
-                <tr key={i}>
-                    <td>{booking.id}</td>
-                    <td><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></td>
-                    <td>{booking.username}</td>
-                    <td>{booking.busNumber}</td>
-                    <td>{booking.source}</td>
-                    <td>{booking.destination}</td>
-                    <td>{booking.numberOfSeats}</td>
-                    <td>{booking.amountPaid}</td>
-                    {/* <td>{booking.date}</td>
-                    <td>{booking.journeyStartTime}</td>
-                    <td>{booking.journeyEndTime}</td> */}
-                    <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</button>
-                    <Link to={"/update/" + booking.bookingId}><button type="button" className="btn btn-primary">Update</button></Link></td>
-                </tr>
+                <TableRow key={i}>
+                    <TableCell align="center">{booking.id}</TableCell>
+                    <TableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></TableCell>
+                    <TableCell align="center">{booking.username}</TableCell>
+                    <TableCell align="center">{booking.busNumber}</TableCell>
+                    <TableCell align="center">{booking.source}</TableCell>
+                    <TableCell align="center">{booking.destination}</TableCell>
+                    <TableCell align="center">{booking.numberOfSeats}</TableCell>
+                    <TableCell align="center">{booking.amountPaid}</TableCell>
+                    <TableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
+                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
+                    <Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
+                        Update</Button></Link></TableCell>
+                </TableRow>
             )
         })
         return (
-            <div className="row">
-                <div className="alert alert-success" role="alert">
-                    {this.state.message}
-                </div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">BookingID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">BusNumber</th>
-                            <th scope="col">Source</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Number of Seats</th>
-                            <th scope="col">Amount Paid</th>
-                            {/* <th scope="col">Date</th>
-                            <th scope="col">Start Time</th>
-                            <th scope="col">End Time</th> */}
-                        </tr>
-                    </thead>
-                    <tbody>
+            // <div className="row">
+            //     <div className="alert alert-success" role="alert">
+            //         {this.state.message}
+            //     </div>
+            //     <table className="table">
+            //         <thead>
+            //             <tr>
+            //                 <th scope="col">id</th>
+            //                 <th scope="col">BookingID</th>
+            //                 <th scope="col">Username</th>
+            //                 <th scope="col">BusNumber</th>
+            //                 <th scope="col">Source</th>
+            //                 <th scope="col">Destination</th>
+            //                 <th scope="col">Number of Seats</th>
+            //                 <th scope="col">Amount Paid</th>
+            //                 {/* <th scope="col">Date</th>
+            //                 <th scope="col">Start Time</th>
+            //                 <th scope="col">End Time</th> */}
+            //             </tr>
+            //         </thead>
+            //         <tbody>
+            //             {bookingList}
+            //         </tbody>
+            //     </table>
+            // </div>
+            <div>
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">ID</TableCell>
+                            <TableCell align="center">BookingID</TableCell>
+                            <TableCell align="center">Username</TableCell>
+                            <TableCell align="center">BusNumber</TableCell>
+                            <TableCell align="center">Source</TableCell>
+                            <TableCell align="center">Destination</TableCell>
+                            <TableCell align="center">Number of Seats</TableCell>
+                            <TableCell align="center">Amount Paid</TableCell>
+                            <TableCell align="center">Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {/* {rows.map((row) => (
+                            <TableRow key={row.name}>
+                                <TableCell component="th" scope="row">
+                                    {row.name}
+                                </TableCell>
+                                <TableCell align="right">{row.calories}</TableCell>
+                                <TableCell align="right">{row.fat}</TableCell>
+                                <TableCell align="right">{row.carbs}</TableCell>
+                                <TableCell align="right">{row.protein}</TableCell>
+                            </TableRow>
+                        ))} */}
                         {bookingList}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
+            </TableContainer>
             </div>
         )
     }

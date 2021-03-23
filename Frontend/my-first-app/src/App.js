@@ -10,6 +10,9 @@ import {
   Link
 } from "react-router-dom";
 import DetailViewBooking from './DetailViewBooking';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 
 // const courses = [
@@ -18,11 +21,34 @@ import DetailViewBooking from './DetailViewBooking';
 //   {title: "EmberJS", summary: "framework another open source..."}
 // ]
 
+
+
 function App() {
+  
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <Router>
-        <ul className="nav justify-content-center">
+      <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}>
+      <Paper square>
+      <Tabs
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}>
+            <Tab label="View Booking" to="/" component={Link} />
+            <Tab label="Add Booking" to="/add" component={Link} />
+      </Tabs>
+    </Paper>
+    </div> 
+        {/* <ul className="nav justify-content-center">
           <li className="nav-item">
             <Link to="/" className="nav-link active">View Booking</Link>
           </li>
@@ -30,7 +56,7 @@ function App() {
           <Link to="/add" className="nav-link">Add Booking</Link>
           </li>
         </ul>
-        <hr />
+        <hr /> */}
         <Switch>
           <Route exact path="/">
             <ViewBooking />
@@ -41,7 +67,9 @@ function App() {
           <Route path="/update/:id" component={UpdateBooking} />
           <Route path="/detailview/:id" component={DetailViewBooking} />
         </Switch>
+        
     </Router>
+    
   );
 }
 

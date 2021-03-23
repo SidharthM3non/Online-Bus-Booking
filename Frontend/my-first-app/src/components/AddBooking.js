@@ -1,6 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Alert from '@material-ui/lab/Alert';
+
+const useStyles =((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
+    },
+    root: {
+        width: '100%',
+        '& > * + *': {
+          marginTop: theme.spacing(2),
+        },
+      },
+}));
 
 class AddBooking extends Component {
 
@@ -57,83 +72,124 @@ journeyEndTime: this.journeyEndTime.current.value});
     }
 
     render() {
+
+        const classes = useStyles;
         return (
             <div>
-                <div className="alert alert-success" role="alert">
+                {/* <div className="alert alert-success" role="alert">
+                    {this.state.message}
+                </div> */}
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.bookingId} id="outlined-basic" label="Enter Booking ID" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.username} id="outlined-basic" label="Enter Username" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.busNumber} id="outlined-basic" label="Enter Bus Number" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.source} id="outlined-basic" label="Enter Source" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.destination} id="outlined-basic" label="Enter Destination" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.numberOfSeats} id="outlined-basic" label="Enter Number of Seats" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.amountPaid} id="outlined-basic" label="Enter Amount Paid" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.date} id="outlined-basic" label="Enter Date" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Enter Start Time" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="Enter End Time" variant="outlined" />
+                </form>
+                </div>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={this.addBooking.bind(this)}>Add</Button>
+                </div><br/>
+                <div>
                     {this.state.message}
                 </div>
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Booking ID</span>
-                </div>
-                <input type="text" ref={this.bookingId} className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Username</span>
-                </div>
-                <input type="text" ref={this.username} className="form-control" placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">BusNumber</span>
-                </div>
-                <input type="text" ref={this.busNumber} className="form-control" placeholder="Enter Bus Number" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Source</span>
-                </div>
-                <input type="text" ref={this.source} className="form-control" placeholder="Enter Source" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Destination</span>
-                </div>
-                <input type="text" ref={this.destination} className="form-control" placeholder="Enter Destination" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Number of Seats</span>
-                </div>
-                <input type="text" ref={this.numberOfSeats} className="form-control" placeholder="Enter number of seats" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Amount Paid</span>
-                </div>
-                <input type="text" ref={this.amountPaid} className="form-control" placeholder="Enter amount paid" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Date</span>
-                </div>
-                <input type="text" ref={this.date} className="form-control" placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Journey Start Time</span>
-                </div>
-                <input type="text" ref={this.journeyStartTime} className="form-control" placeholder="Enter start time" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Jounrey End Time</span>
-                </div>
-                <input type="text" ref={this.journeyEndTime} className="form-control" placeholder="Enter end time" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-
-                <button type="button" className="btn btn-primary" onClick={this.addBooking.bind(this)}>Add Booking</button>
             </div>
         )
     }

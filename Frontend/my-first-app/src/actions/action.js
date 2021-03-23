@@ -1,3 +1,4 @@
+
 export const saveBooking = (payload) => {
     return {type: "ADD_BOOKING", payload: {message: "Successfully added Booking!"}}
 }

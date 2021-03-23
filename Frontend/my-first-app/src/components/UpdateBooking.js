@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+
+
+const useStyles = ((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
+    button: {
+        margin: theme.spacing(1),
+    },
+  }));
 
 class UpdateBooking extends Component {
 
@@ -16,44 +34,46 @@ class UpdateBooking extends Component {
         console.log('method for updating Booking date', this.date.current.value);
         event.preventDefault();
         this.props.onUpdateBooking(this.props.match.params.id, this.date.current.value)
-
-        // const url = 'http://localhost:80/api/v1/bookings/update/' + this.props.match.params.id + '/' + this.date.current.value;
-        // fetch(url, {
-        //     method: "PUT",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({bookingId: this.props.match.params.id, date: this.date.current.value})})
-        //     .then(response =>{
-        //         console.log(response.status);
-        //         if(response.status === 200){
-        //             this.setState({date: this.date.current.value})
-        //             this.setState({message: 'Booking updated sucessfully!'})
-        //     }
-        //     })
     }
 
     render() {
+
+        const classes = useStyles;
+
         return (
             <div>
-                <div className="alert alert-success" role="alert">
+                {/* <div className="alert alert-success" role="alert">
                     {this.state.message}
+                </div> */}
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <div>
+                        <span>Booking ID</span>
+                    </div>
+                    <TextField id="filled-basic" value={this.props.match.params.id} disabled />
+                </form>
                 </div>
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Booking ID</span>
+                <br/>
+                <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.date} id="outlined-basic" label="Enter Date" variant="outlined" />
+                    {/* <Input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
+                    {/* <input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
+                </form>
                 </div>
-                <input type="text" value={this.props.match.params.id} disabled className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">Date</span>
-                </div>
-                <input type="text" ref={this.date} className="form-control" placeholder="Enter new Date" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
-
-                <button type="button" className="btn btn-primary" onClick={this.updateBookingDate.bind(this)}>Update Booking</button>
+                <br/>
+                <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
+                <Button variant="contained" color="primary" size="small" className={classes.button} startIcon={<SaveIcon />}
+                    onClick={this.updateBookingDate.bind(this)}>Save</Button></div>
             </div>
         )
     }
