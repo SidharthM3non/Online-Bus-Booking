@@ -3,17 +3,32 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Alert from '@material-ui/lab/Alert';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const useStyles =((theme) => ({
-    margin: {
-      margin: theme.spacing(1),
-    },
     root: {
         width: '100%',
         '& > * + *': {
           marginTop: theme.spacing(2),
         },
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '25ch',
+      },
+      formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
       },
 }));
 
@@ -31,7 +46,7 @@ class AddBooking extends Component {
         this.date = React.createRef();
         this.journeyStartTime = React.createRef();
         this.journeyEndTime = React.createRef();
-        this.state = {message: ''}
+        this.state = {message: '', source: ''}
     }
 
     addBooking(event){
@@ -74,111 +89,82 @@ journeyEndTime: this.journeyEndTime.current.value});
     render() {
 
         const classes = useStyles;
+
+        // const [source, setSource] = React.useState('');
+
+        const handleSourceChange = (event) => {
+         this.setState({source: event.target.value})
+        };
+        const handleDestinationChange = (event) => {
+          this.setState({destination: event.target.value})
+        };
+
         return (
             <div>
-                {/* <div className="alert alert-success" role="alert">
-                    {this.state.message}
-                </div> */}
+                <br/>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.bookingId} id="standard-full-width" style={{ margin: 8 }} label="Enter Booking ID"
+                    fullWidth margin="normal" variant="outlined" />
+                </form>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.username} id="standard-full-width" style={{ margin: 8 }} label="Enter Username"
+                    fullWidth margin="normal" variant="outlined" />
+                </form>
                 <br/>
                 <div style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.bookingId} id="outlined-basic" label="Enter Booking ID" variant="outlined" />
+                    <TextField inputRef={this.busNumber} id="margin-normal" className={classes.textField} label="Enter Bus Number"
+                    margin="normal" variant="outlined" style={{margin:8}}/>
+                </form>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.numberOfSeats} id="outlined-basic" label="Enter Number of Seats" variant="outlined" 
+                    style={{margin: 8}}/>
+                </form>
+                <br/>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.amountPaid} InputProps={{startAdornment: (<InputAdornment position="start">₹</InputAdornment>)}}
+                     id="outlined-basic" label="Enter Amount Paid" variant="outlined" style={{margin: 8}}/>
+                </form>
+                <br/>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.date} id="outlined-basic" label="Enter Date" variant="outlined" style={{margin:8}}/>
+                </form>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Enter Start Time" variant="outlined" style={{margin:8}} />
+                </form>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="Enter End Time" variant="outlined" style={{margin:8}}/>
                 </form>
                 </div>
                 <br/>
                 <div style={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: 8
               }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.username} id="outlined-basic" label="Enter Username" variant="outlined" />
-                </form>
+                <FormControl fullWidth variant="outlined" id="margin-normal" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">Source</InputLabel>
+                  <Select inputRef = {this.source} labelId="emo-simple-select-outlined-label" value={this.state.source} label="Source" id="demo-simple-select-outlined" 
+                    onChange={handleSourceChange} style={{minWidth: 120, marginRight:8, marginLeft:8}}>
+                    <MenuItem value={'A'}>A</MenuItem>
+                    <MenuItem value={'C'}>C</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl fullWidth variant="outlined" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">Destination</InputLabel>
+                  <Select inputRef = {this.destination} labelId="emo-simple-select-outlined-label" value={this.state.destination} label="Destination" id="demo-simple-select-outlined" 
+                    onChange={handleDestinationChange} style={{minWidth: 120, marginRight:8, marginLeft:8}}>
+                    <MenuItem value={'B'}>B</MenuItem>
+                    <MenuItem value={'D'}>D</MenuItem>
+                  </Select>
+                </FormControl>
                 </div>
                 <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.busNumber} id="outlined-basic" label="Enter Bus Number" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.source} id="outlined-basic" label="Enter Source" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.destination} id="outlined-basic" label="Enter Destination" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.numberOfSeats} id="outlined-basic" label="Enter Number of Seats" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.amountPaid} id="outlined-basic" label="Enter Amount Paid" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.date} id="outlined-basic" label="Enter Date" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Enter Start Time" variant="outlined" />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="Enter End Time" variant="outlined" />
-                </form>
-                </div>
                 <br/>
                 <div style={{
                 display: "flex",
