@@ -68,6 +68,18 @@ public class UserServiceImpl implements IUserService {
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
+
+	@Override
+	public User findUser(String username) {
+		// TODO Auto-generated method stub
+		Optional<User> u = userRepository.findByUsername(username);
+		User user = null;
+		if(u.isPresent()) {
+			user = u.get();
+		}
+		return user;
+		
+	}
 	
 //Code end - By Sagar KC	
 }

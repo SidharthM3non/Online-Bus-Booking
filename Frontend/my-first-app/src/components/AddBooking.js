@@ -103,11 +103,11 @@ journeyEndTime: this.journeyEndTime.current.value});
             <div>
                 <br/>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.bookingId} id="standard-full-width" style={{ margin: 8 }} label="Enter Booking ID"
+                    <TextField inputRef={this.bookingId} id="standard-full-width" style={{ margin: 8 }} label="Booking ID"
                     fullWidth margin="normal" variant="outlined" />
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.username} id="standard-full-width" style={{ margin: 8 }} label="Enter Username"
+                    <TextField inputRef={this.username} id="standard-full-width" style={{ margin: 8 }} label="Username"
                     fullWidth margin="normal" variant="outlined" />
                 </form>
                 <br/>
@@ -117,27 +117,27 @@ journeyEndTime: this.journeyEndTime.current.value});
                 alignItems: "center",
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.busNumber} id="margin-normal" className={classes.textField} label="Enter Bus Number"
+                    <TextField inputRef={this.busNumber} id="margin-normal" className={classes.textField} label="Bus Number"
                     margin="normal" variant="outlined" style={{margin:8}}/>
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.numberOfSeats} id="outlined-basic" label="Enter Number of Seats" variant="outlined" 
+                    <TextField inputRef={this.numberOfSeats} id="outlined-basic" label="Number of Seats" variant="outlined" 
                     style={{margin: 8}}/>
                 </form>
                 <br/>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField inputRef={this.amountPaid} InputProps={{startAdornment: (<InputAdornment position="start">₹</InputAdornment>)}}
-                     id="outlined-basic" label="Enter Amount Paid" variant="outlined" style={{margin: 8}}/>
+                     id="outlined-basic" label="Amount Paid" variant="outlined" style={{margin: 8}}/>
                 </form>
                 <br/>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.date} id="outlined-basic" label="Enter Date" variant="outlined" style={{margin:8}}/>
+                    <TextField inputRef={this.date} id="outlined-basic" label="Date" variant="outlined" style={{margin:8}}/>
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Enter Start Time" variant="outlined" style={{margin:8}} />
+                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Start Time" variant="outlined" style={{margin:8}} />
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="Enter End Time" variant="outlined" style={{margin:8}}/>
+                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="End Time" variant="outlined" style={{margin:8}}/>
                 </form>
                 </div>
                 <br/>

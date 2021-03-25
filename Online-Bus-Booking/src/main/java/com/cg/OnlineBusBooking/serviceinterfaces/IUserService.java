@@ -15,5 +15,7 @@ public interface IUserService {
 	public void updateUser(String username, String password);
 	
 	public List<User> getAllUsers();
+
+	public User findUser(String username);
 	
 }

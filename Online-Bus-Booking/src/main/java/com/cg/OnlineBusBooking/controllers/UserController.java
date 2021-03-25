@@ -6,7 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,6 +27,7 @@ import io.swagger.annotations.ApiOperation;
 //Code start - By Sagar KC
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/v1/users") //URL specification before every method
 @Api(value = "User", tags = { "UserAPI" })
 public class UserController {
@@ -74,6 +77,14 @@ public class UserController {
 	@ApiOperation(value = "Update a user passwoord", notes = "Provide old and new password", response = User.class)
 	public void updateUser(@PathVariable("username") String username, @PathVariable("password") String password) {
 		userService.updateUser(username, password);
+	}
+	
+	@GetMapping("/{username}")
+	@Transactional
+	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "find user", notes = "Provide username", response = User.class)
+	public User findUser(@PathVariable("username") String username) {
+		return userService.findUser(username);
 	}
 	
 	//Code end - By Sagar KC

@@ -2,6 +2,7 @@ import AddBooking from './components/AddBooking';
 import './App.css';
 import UpdateBooking from './components/UpdateBooking';
 import ViewBooking from './components/ViewBooking';
+import User from './components/User';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -13,6 +14,8 @@ import DetailViewBooking from './DetailViewBooking';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import UserSignIn from './components/UserSignIn';
+import UserLogin from './components/UserLogin';
 
 
 // const courses = [
@@ -32,22 +35,7 @@ function App() {
 
   return (
     <Router>
-      <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
-      <Paper square>
-      <Tabs
-        value={value}
-        indicatorColor="primary"
-        textColor="primary"
-        onChange={handleChange}>
-            <Tab label="View Booking" to="/" component={Link} />
-            <Tab label="Add Booking" to="/add" component={Link} />
-      </Tabs>
-    </Paper>
-    </div> 
+      
         {/* <ul className="nav justify-content-center">
           <li className="nav-item">
             <Link to="/" className="nav-link active">View Booking</Link>
@@ -59,6 +47,32 @@ function App() {
         <hr /> */}
         <Switch>
           <Route exact path="/">
+            <User />
+          </Route>
+          <Route path="/usersignin">
+            <UserSignIn></UserSignIn>
+          </Route>
+          <Route path="/userlogin">
+            <UserLogin></UserLogin>
+          </Route>
+          <div>
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>
+            <Paper square>
+              <Tabs
+                value={value}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={handleChange}>
+                <Tab label="View Booking" to="/viewbooking" component={Link} />
+                <Tab label="Add Booking" to="/add" component={Link} />
+              </Tabs>
+            </Paper>
+          </div>
+          <Route path="/viewbooking">
             <ViewBooking />
           </Route>
           <Route path="/add">
@@ -66,6 +80,7 @@ function App() {
           </Route>
           <Route path="/update/:id" component={UpdateBooking} />
           <Route path="/detailview/:id" component={DetailViewBooking} />
+          </div>
         </Switch>
         
     </Router>
