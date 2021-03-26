@@ -16,6 +16,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import UserSignIn from './components/UserSignIn';
 import UserLogin from './components/UserLogin';
+import AddBus from './components/AddBus';
+import Revenue from './components/Revenue';
+import RouteRev from './components/RouteRev';
+import DatedRouteRev from './components/DatedRouteRev';
+import MonthlyRev from './components/MonthlyRev';
 
 
 // const courses = [
@@ -68,7 +73,9 @@ function App() {
                 textColor="primary"
                 onChange={handleChange}>
                 <Tab label="View Booking" to="/viewbooking" component={Link} />
-                <Tab label="Add Booking" to="/add" component={Link} />
+                {/* <Tab label="Add Booking" to="/add" component={Link} /> */}
+                <Tab label="Add Bus" to="/addbus" component={Link} />
+                <Tab label="Revenue" to="/revenue" component={Link} />
               </Tabs>
             </Paper>
           </div>
@@ -77,6 +84,21 @@ function App() {
           </Route>
           <Route path="/add">
             <AddBooking />
+          </Route>
+          <Route path="/addbus">
+            <AddBus />
+          </Route>
+          <Route path="/revenue">
+            <Revenue />
+          </Route>
+          <Route path="/routerev">
+            <RouteRev />
+          </Route>
+          <Route path="/datedrouterev">
+            <DatedRouteRev />
+          </Route>
+          <Route path="/monthlyrouterev">
+            <MonthlyRev />
           </Route>
           <Route path="/update/:id" component={UpdateBooking} />
           <Route path="/detailview/:id" component={DetailViewBooking} />

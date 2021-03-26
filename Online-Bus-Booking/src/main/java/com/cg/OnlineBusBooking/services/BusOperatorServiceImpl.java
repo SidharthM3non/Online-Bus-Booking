@@ -117,6 +117,13 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 		BusOperator busOperator = busOperatorRepository.findByPassword(oldPassword);
 		busOperator.setPassword(newPassword); //Updating the password using setters
 	}
+
+	@Override
+	public Bus getAllBusByUsername(String busOperatorUsername) {
+		// TODO Auto-generated method stub
+		Bus bus = busRepository.findByBusOperatorBusOperatorUsername(busOperatorUsername);
+		return bus;
+	}
 	
 	//Code end - By Saurabh Dadhich
 	

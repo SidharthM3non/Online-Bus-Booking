@@ -1,6 +1,7 @@
 package com.cg.OnlineBusBooking.serviceinterfaces;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
@@ -22,4 +23,6 @@ public interface IBusOperatorService {
 	public void addBusOperator(BusOperator busOp);
 	
 	public void updatePassword(String oldPassword, String newPassword);
+
+	public Bus getAllBusByUsername(String busOperatorUsername);
 }

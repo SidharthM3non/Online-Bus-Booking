@@ -1,6 +1,7 @@
 package com.cg.OnlineBusBooking.controllers;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +30,7 @@ import javassist.NotFoundException;
 //Code start - By Saurabh Dadhich & Sidharth Menon
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/v1/busoperator") //URL specification before every method
 @Api(value = "BusOperator", tags = { "BusOperatorAPI" })
 public class BusOperatorController {
@@ -159,5 +162,12 @@ public class BusOperatorController {
 	}
 	
 	//Code end - By Saurabh Dadhich & Sidharth Menon
+	
+	@GetMapping("/getbybusop/{busOperatorUsername}")
+	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all Bus by Username", response = Bus.class)
+	public Bus getAllBusByUsername(@PathVariable("busOperatorUsername")String busOperatorUsername){
+		return busOperatorService.getAllBusByUsername(busOperatorUsername);
+	}
 	
 }

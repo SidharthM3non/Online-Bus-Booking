@@ -4,7 +4,6 @@ import {
   } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
-import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
@@ -24,14 +23,18 @@ const useStyles = ({
     button: {
       margin: theme.spacing(1),
     },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
   }));
-  
+
+ 
 
 class ViewBooking extends Component {
 
     constructor(){
         super();
-        this.state = {bookings: [], message: ''}
+        this.state = {bookings: [], message: '', left: false}
     }
 
     componentDidMount() {
@@ -41,10 +44,18 @@ class ViewBooking extends Component {
     deleteBooking(bookingId) {
         return this.props.onDeleteBooking(bookingId)
     }
+    
 
     render() {
 
         const classes = useStyles;
+
+        // const [state, setState] = React.useState({
+        //     top: false,
+        //     left: false,
+        //     bottom: false,
+        //     right: false,
+        //   });
 
         var bookingList = this.props.bookings.map((booking, i)=>{
             return (        

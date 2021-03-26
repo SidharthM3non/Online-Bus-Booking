@@ -26,7 +26,7 @@ class UserLogin extends Component {
         console.log('password', this.password.current.value);
         event.preventDefault();
 
-        this.props.onCheckUser({username: this.username.current.value, password: this.password.current.value});
+        this.props.onCheckUser({id: 0, username: this.username.current.value, password: this.password.current.value});
         if(this.props.onCheckUser({username: this.username.current.value, password: this.password.current.value})){
             <Link to={"/viewbooking"}></Link>
         }

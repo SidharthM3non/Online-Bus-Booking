@@ -72,6 +72,7 @@ export const deleteBooking = (bookingId) =>{
             .then(data => {
                 console.log(data);
                 dispatch(removeBooking({bookings: data, message}))
+                dispatch(fetchBookings())
             }) 
     }
 }
@@ -142,5 +143,103 @@ export const checkUser = (username, password) => {
                     dispatch(getUser(username))
                 }
             })   
+    }
+}
+
+export const saveBus = (payload) => {
+    return {type: "ADD_BUS", payload: {message: "Successfully added Bus!"}}
+}
+
+export const addBus = (payload) => {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/busoperator/', requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 201){
+                    console.log("success");
+                    dispatch(saveBus())
+                }
+            })   
+    }
+}
+
+export const fetchRev = (payload) => {
+    return {type: "GET_REV", payload: payload}
+}
+
+export const fetchRouteRev = (routeName) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/busoperator/revenue/' + routeName, requestOptions)
+            .then(res => {
+                if(res.status === 200){
+                    console.log(res);
+                    return res.json();
+                }
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(fetchRev(data));
+            })    
+    }
+}
+
+export const fetchDatedRev = (payload) => {
+    return {type: "GET_REV", payload: payload}
+}
+
+export const fetchDatedRouteRev = (routeName, date) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/busoperator/revenue/' + routeName + '/' + date, requestOptions)
+            .then(res => {
+                if(res.status === 200){
+                    console.log(res);
+                    return res.json();
+                }
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(fetchDatedRev(data));
+            })    
+    }
+}
+
+export const fetchMonthlyRev = (payload) => {
+    return {type: "GET_REV", payload: payload}
+}
+
+export const fetchMonthlyRouteRev = (routeName, month, year) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/busoperator/revenue/' + routeName + '/' + month + '/' + year, requestOptions)
+            .then(res => {
+                if(res.status === 200){
+                    console.log(res);
+                    return res.json();
+                }
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(fetchRev(data));
+            })    
     }
 }

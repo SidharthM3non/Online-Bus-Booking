@@ -5,7 +5,10 @@ const initialState = {
         // { id: 12, bookingId: 2545342, username: 'DEF', busNumber: 2243, source: 'A', destination: 'B', numberOfSeats: 1, amountPaid: 15 },
         // { id: 13, bookingId: 1786243, username: 'XYZ', busNumber: 4123, source: 'A', destination: 'B', numberOfSeats: 2, amountPaid: 30 },
     ],
-    users: []
+    users: [],
+    bus: [],
+    busOp: [],
+    rev: 0,
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -30,6 +33,12 @@ const reducer = (state = initialState, { type, payload }) => {
          return {users: state.users} 
     case "GET_USER":
         console.log(payload) 
+        return {users: state.users}
+    case "ADD_BUS":
+        return {message: payload.message, bus: state.bus}
+    case "GET_REV":
+        console.log(payload)
+        return {rev: payload} 
     default:
         return state
     }

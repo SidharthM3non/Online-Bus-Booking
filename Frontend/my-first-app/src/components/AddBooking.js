@@ -131,13 +131,13 @@ journeyEndTime: this.journeyEndTime.current.value});
                 </form>
                 <br/>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.date} id="outlined-basic" label="Date" variant="outlined" style={{margin:8}}/>
+                    <TextField type="date" inputRef={this.date} id="outlined-basic" label="Date" InputLabelProps={{shrink:true}} variant="outlined" style={{margin:8}}/>
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyStartTime} id="outlined-basic" label="Start Time" variant="outlined" style={{margin:8}} />
+                    <TextField type="time" inputRef={this.journeyStartTime} id="outlined-basic" label="Start Time" InputLabelProps={{shrink:true}} variant="outlined" style={{margin:8}} />
                 </form>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.journeyEndTime} id="outlined-basic" label="End Time" variant="outlined" style={{margin:8}}/>
+                    <TextField type="time" inputRef={this.journeyEndTime} id="outlined-basic" label="End Time" InputLabelProps={{shrink:true}} variant="outlined" style={{margin:8}}/>
                 </form>
                 </div>
                 <br/>

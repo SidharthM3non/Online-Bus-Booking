@@ -20,26 +20,24 @@ const useStyles = ((theme) => ({
     },
   }));
 
-class UpdateBooking extends Component {
+class RouteRev extends Component {
 
     constructor(){
         super();
-        this.bookingId = React.createRef();
-        this.date = React.createRef();
-        this.state = {message: ''};
+        this.routeName = React.createRef();
+        this.state = {message: '', revenue: 0};
     }
 
-    updateBookingDate(event){
-        console.log('method for updating Booking date', this.props.match.params.id);
-        console.log('method for updating Booking date', this.date.current.value);
+    fetchRouteRevenue(event){
+        console.log(this.routeName.current.value);
         event.preventDefault();
-        this.props.onUpdateBooking(this.props.match.params.id, this.date.current.value)
+        this.props.onFetchRouteRevnue(this.routeName.current.value)
+        this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
     }
 
     render() {
 
         const classes = useStyles;
-
         return (
             <div>
                 {/* <div className="alert alert-success" role="alert">
@@ -52,28 +50,16 @@ class UpdateBooking extends Component {
                 alignItems: "center"
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <div>
-                        <span>Booking ID</span>
-                    </div>
-                    <TextField id="filled-basic" value={this.props.match.params.id} disabled />
-                </form>
-                </div>
-                <br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField type="date" inputRef={this.date} id="outlined-basic" label="Enter Date" InputLabelProps={{shrink:true}} variant="outlined" />
+                    <TextField inputRef={this.routeName} id="outlined-basic" label="Enter Route Name" InputLabelProps={{shrink:true}} variant="outlined" />
                     {/* <Input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                     {/* <input type="text" ref={this.date} placeholder="Enter Date" aria-label="Username" aria-describedby="basic-addon1"/> */}
                 </form>
                 </div>
                 <br/>
                 <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
-                <Button variant="contained" color="primary" size="small" className={classes.button} startIcon={<SaveIcon />}
-                    onClick={this.updateBookingDate.bind(this)}>Save</Button></div>
+                <Button variant="contained" color="primary" size="small" className={classes.button}
+                    onClick={this.fetchRouteRevenue.bind(this)}>Search</Button></div>
+                {this.state.revenue}
             </div>
         )
     }
@@ -87,9 +73,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onUpdateBooking: (id, date) => dispatch(actions.updateBookings(id, date))
+        onFetchRouteRevnue: (routeName) => dispatch(actions.fetchRouteRev(routeName))
     }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToState)(UpdateBooking);
+export default connect(mapStateToProps, mapDispatchToState)(RouteRev);
