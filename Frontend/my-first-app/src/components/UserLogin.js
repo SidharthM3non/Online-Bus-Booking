@@ -53,7 +53,7 @@ class UserLogin extends Component {
                     </div><br/><br/>
                     <div style={{display: "flex", justifyContent:'center', alignItems:'center'}}>
                     {/* <Button color="primary" onClick={this.checkUser.bind(this)}>Login</Button><br /><br/> */}
-                    <Link to={"/viewbooking"}><Button color="primary">Login</Button></Link><br /><br/>
+                    <Link to={"/comp"}><Button color="primary">Login</Button></Link><br /><br/>
                     </div>
                 </CardContent>
                 </Card>

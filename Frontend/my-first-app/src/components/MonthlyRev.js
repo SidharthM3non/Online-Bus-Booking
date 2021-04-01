@@ -36,7 +36,7 @@ class MonthlyRev extends Component {
         console.log(this.year.current.value);
         event.preventDefault();
         this.props.onFetchMonthlyRouteRevnue(this.routeName.current.value, this.month.current.value, this.year.current.value)
-        this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
+        // this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
     }
 
     render() {
@@ -79,7 +79,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchMonthlyRouteRevnue: (routeName, date) => dispatch(actions.fetchMonthlyRouteRev(routeName, date))
+        onFetchMonthlyRouteRevnue: (routeName, month, year) => dispatch(actions.fetchMonthlyRouteRev(routeName, month, year))
     }
 }
 

@@ -34,7 +34,7 @@ class DatedRouteRev extends Component {
         console.log(this.date.current.value);
         event.preventDefault();
         this.props.onFetchDatedRouteRevnue(this.routeName.current.value, this.date.current.value)
-        this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
+        // this.state.revenue = this.props.onFetchRouteRevnue(this.routeName.current.value)
     }
 
     render() {

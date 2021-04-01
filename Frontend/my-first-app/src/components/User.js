@@ -41,13 +41,14 @@ class User extends Component {
                 <Card style={{height: 500, width:500, display: 'flex', justifyContent:'center', alignItems:'center'}} variant="outlined">
                 <CardContent> 
                     <Typography variant="h2" color="textSecondary" gutterBottom style={{display: "flex", justifyContent:'center', alignItems:'middle'}}>
-                                Hello User</Typography><br />
-                    <div style={{display: "flex", justifyContent:'center', alignItems:'center'}}>
-                    <Link to={"/usersignin"}><Button variant="outlined" color="primary">
-                                    Sign In</Button></Link></div><br/><br/>
+                                Hello BusOp</Typography><br />
                     <div style={{display: "flex", justifyContent:'center', alignItems:'center'}}>
                     <Link to={"/userlogin"}><Button variant="contained" color="primary" style={{display: "flex", justifyContent:'center', alignItems:'center'}}>
-                                    Log In</Button></Link></div><br/>
+                                    Log In</Button></Link></div><br/><br/>
+                    <div style={{display: "flex", justifyContent:'center', alignItems:'center'}}>
+                    <Link to={"/usersignin"}><Typography variant="h6" color="textSecondary" gutterBottom style={{display: "flex", justifyContent:'center', alignItems:'middle'}}>
+                                    New user?</Typography></Link></div><br/>
+                    
                 </CardContent>
                 </Card>
                 </Grid>      

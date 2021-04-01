@@ -38,7 +38,7 @@ class Revenue extends Component {
         const classes = useStyles;
 
         return (
-            <div>
+            <Grid>
                 <br />
                     <div style={{
                         display: "flex",
@@ -46,28 +46,36 @@ class Revenue extends Component {
                         alignItems: "center"
                     }}>
                     <Typography variant="h4">Which Revenue would you like to view?</Typography></div>
-                    <br/>
+                    <br/><br/><br/>
+                <div style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
                 <Grid container spacing={3}>
-                    <Grid item xs={3}>
+                    <Grid item xs={6} sm={3}>
                     <Link to={"/routerev"}><Button variant="contained" color="primary" size="large"
                         className={classes.button}>Route Revenue</Button></Link>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={6} sm={3}>
                     <Link to={"/datedrouterev"}><Button variant="contained" color="primary" size="large" 
                         className={classes.button}>Dated Route Revenue</Button></Link>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={6} sm={3}>
                     <Link to={"/monthlyrouterev"}><Button variant="contained" color="primary" size="large" 
                         className={classes.button}>Monthly Revenue</Button></Link>
                     </Grid>
+                    <Grid item xs={6} sm={3}>
+                    <Link to={"/yearlyrouterevenue"}><Button variant="contained" color="primary" size="large" 
+                        className={classes.button}>Yearly Revenue</Button></Link>
+                    </Grid>
                 </Grid>
-                    
+                </div>
                 
                 
-                {/* <Link to={}><Button variant="contained" color="primary" size="large" 
-                className={classes.button}>Yearly Revenue</Button></Link> */}
                 
-            </div>
+                
+                </Grid>
         )
     }
 }

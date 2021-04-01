@@ -66,6 +66,9 @@ function App() {
             justifyContent: "center",
             alignItems: "center"
           }}>
+            <Route path="/comp">
+          </Route>
+            
             <Paper square>
               <Tabs
                 value={value}

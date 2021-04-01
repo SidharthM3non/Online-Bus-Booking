@@ -102,7 +102,7 @@ export const updateBookings = (id, date) =>{
 }
 
 export const saveUser = (payload) => {
-    return {type: "ADD_USER", payload: {message: "Successfully added user!"}}
+    return {type: "ADD_USER", payload: {message: "Successfully added bus operator!"}}
 }
 
 export const addUser = (payload) => {
@@ -113,7 +113,7 @@ export const addUser = (payload) => {
         body: JSON.stringify(payload)
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/users/', requestOptions)
+        fetch('http://localhost:80/api/v1/busoperator/', requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 201){
@@ -230,7 +230,7 @@ export const fetchMonthlyRouteRev = (routeName, month, year) => {
         headers: { 'Content-Type': 'application/json' },
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/busoperator/revenue/' + routeName + '/' + month + '/' + year, requestOptions)
+        fetch('http://localhost:80/api/v1/busoperator/monthlyrevenue/' + routeName + '/' + month + '/' + year, requestOptions)
             .then(res => {
                 if(res.status === 200){
                     console.log(res);
@@ -239,7 +239,32 @@ export const fetchMonthlyRouteRev = (routeName, month, year) => {
             })
             .then(data => {
                 console.log(data);
-                dispatch(fetchRev(data));
+                dispatch(fetchMonthlyRev(data));
+            })    
+    }
+}
+
+export const fetchYearlyRev = (payload) => {
+    return {type: "GET_REV", payload: payload}
+}
+
+export const fetchYearlyRouteRev = (routeName, year) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/busoperator/yearlyrevenue/' + routeName + '/' +  year, requestOptions)
+            .then(res => {
+                if(res.status === 200){
+                    console.log(res);
+                    return res.json();
+                }
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(fetchYearlyRev(data));
             })    
     }
 }
