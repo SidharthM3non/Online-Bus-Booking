@@ -34,7 +34,7 @@ function App() {
   return (
     <Router history={hist}>
       <Header
-        brand='Bus'
+        brand='Home'
         rightLinks={<HeaderLinks />}
         fixed
         color='transparent'

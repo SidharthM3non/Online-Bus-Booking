@@ -13,6 +13,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Box from '@material-ui/core/Box';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = ({
     table: {
@@ -34,7 +40,7 @@ class ViewBooking extends Component {
 
     constructor(){
         super();
-        this.state = {bookings: [], message: '', left: false}
+        this.state = {bookings: [], message: '', left: false, open: false}
     }
 
     componentDidMount() {
@@ -44,7 +50,6 @@ class ViewBooking extends Component {
     deleteBooking(bookingId) {
         return this.props.onDeleteBooking(bookingId)
     }
-    
 
     render() {
 
@@ -58,78 +63,79 @@ class ViewBooking extends Component {
         //   });
 
         var bookingList = this.props.bookings.map((booking, i)=>{
-            return (        
+            return (    
+                <React.Fragment>  
                 <TableRow key={i}>
-                    <TableCell align="center">{booking.id}</TableCell>
-                    <TableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></TableCell>
-                    <TableCell align="center">{booking.username}</TableCell>
-                    <TableCell align="center">{booking.busNumber}</TableCell>
-                    <TableCell align="center">{booking.source}</TableCell>
-                    <TableCell align="center">{booking.destination}</TableCell>
-                    <TableCell align="center">{booking.numberOfSeats}</TableCell>
-                    <TableCell align="center">{booking.amountPaid}</TableCell>
+                    <TableCell component="th" scope="row" align="center">{booking.id}</TableCell>
+                    {/* <TableCell>
+                        <IconButton aria-label="expand row" size="small" onClick={() => this.setState({open: !this.state.open})}>
+                            {this.state.open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                        </IconButton>
+                    </TableCell> */}
+                    <TableCell align="center" onClick={() => this.setState({open: !this.state.open})}>{booking.bookingId}
+                    <IconButton aria-label="expand row" size="small">
+                        {this.state.open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    </IconButton></TableCell>
                     <TableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
                         startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
                     {/* <Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></TableCell> */}
                             </TableCell>
                 </TableRow>
-            )
-        })
-        return (
-            // <div className="row">
-            //     <div className="alert alert-success" role="alert">
-            //         {this.state.message}
-            //     </div>
-            //     <table className="table">
-            //         <thead>
-            //             <tr>
-            //                 <th scope="col">id</th>
-            //                 <th scope="col">BookingID</th>
-            //                 <th scope="col">Username</th>
-            //                 <th scope="col">BusNumber</th>
-            //                 <th scope="col">Source</th>
-            //                 <th scope="col">Destination</th>
-            //                 <th scope="col">Number of Seats</th>
-            //                 <th scope="col">Amount Paid</th>
-            //                 {/* <th scope="col">Date</th>
-            //                 <th scope="col">Start Time</th>
-            //                 <th scope="col">End Time</th> */}
-            //             </tr>
-            //         </thead>
-            //         <tbody>
-            //             {bookingList}
-            //         </tbody>
-            //     </table>
-            // </div>
-            <div>
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align="center">ID</TableCell>
-                            <TableCell align="center">BookingID</TableCell>
+                <TableRow>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                  <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+                    <Box margin={1}>
+                      <Typography variant="h6" gutterBottom component="div">
+                        Detail View Booking
+                      </Typography>
+                      <Table size="small" aria-label="purchases">
+                        <TableHead>
+                          <TableRow>
                             <TableCell align="center">Username</TableCell>
                             <TableCell align="center">BusNumber</TableCell>
                             <TableCell align="center">Source</TableCell>
                             <TableCell align="center">Destination</TableCell>
                             <TableCell align="center">Number of Seats</TableCell>
                             <TableCell align="center">Amount Paid</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                            <TableCell component="th" scope="row" align="center">{booking.username}</TableCell>
+                            <TableCell align="center">{booking.busNumber}</TableCell>
+                            <TableCell align="center">{booking.source}</TableCell>
+                            <TableCell align="center">{booking.destination}</TableCell>
+                            <TableCell align="center">{booking.numberOfSeats}</TableCell>
+                            <TableCell align="center">{booking.amountPaid}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                      </Table>
+                    </Box>
+                  </Collapse>
+                </TableCell>
+              </TableRow>
+              </React.Fragment>  
+            )
+        })
+        return (
+            <div>
+            <TableContainer component={Paper} style={{alignItems:'center', justifyContent:'center', display:'flex'}}>
+                <Table className={classes.table} aria-label="collapsible table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">ID</TableCell>
+                            <TableCell align="center">BookingID</TableCell>
+                            {/* <TableCell align="center">Username</TableCell>
+                            <TableCell align="center">BusNumber</TableCell>
+                            <TableCell align="center">Source</TableCell>
+                            <TableCell align="center">Destination</TableCell>
+                            <TableCell align="center">Number of Seats</TableCell>
+                            <TableCell align="center">Amount Paid</TableCell> */}
                             <TableCell align="center">Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {/* {rows.map((row) => (
-                            <TableRow key={row.name}>
-                                <TableCell component="th" scope="row">
-                                    {row.name}
-                                </TableCell>
-                                <TableCell align="right">{row.calories}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
-                            </TableRow>
-                        ))} */}
                         {bookingList}
                     </TableBody>
                 </Table>

@@ -54,7 +54,7 @@ export default function HeaderLinks(props) {
             <DeleteIcon />
           </IconButton>
         </Tooltip>*/}
-        <Tooltip
+        {/* <Tooltip
           id='instagram-twitter'
           title='Follow us on twitter'
           placement={window.innerWidth > 959 ? 'top' : 'left'}
@@ -102,7 +102,7 @@ export default function HeaderLinks(props) {
           >
             <i className={classes.socialIcons + ' fab fa-instagram'} />
           </Button>
-        </Tooltip>
+        </Tooltip> */}
       </ListItem>
     </List>
   );

@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Alert from '@material-ui/lab/Alert';
+import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles =((theme) => ({
     root: {
@@ -35,7 +40,7 @@ class AddBus extends Component {
         this.busNumber = React.createRef();
         this.totalSeats = React.createRef();
         this.fare = React.createRef();
-        this.state = {message: '', source: ''}
+        this.state = {message: '', source: '', open: false}
     }
 
     addBus(event){
@@ -46,6 +51,7 @@ class AddBus extends Component {
 
         this.props.onAddBus({id: 0, busNumber: this.busNumber.current.value, totalSeats: this.totalSeats.current.value, 
             fare: this.fare.current.value});
+        this.handleClick();
 
     //     const url = 'http://localhost:80/api/v1/bookings/';
     //     fetch(url, {
@@ -65,6 +71,18 @@ class AddBus extends Component {
     //     })
         
     }
+
+    handleClick = () => {
+      this.setState({open: true})
+    };
+
+    handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+
+      this.setState({open: false})
+    };
 
     render() {
 
@@ -107,13 +125,11 @@ class AddBus extends Component {
               }}>
                 <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={this.addBus.bind(this)}>Add Bus</Button>
                 </div><br/>
-                <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <Alert severity="success">{this.props.message}</Alert>
-                </div>
+                <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
+                <Alert onClose={this.handleClose} severity="success">
+                    {this.props.message}
+                </Alert>
+                </Snackbar>
             </div>
         )
     }

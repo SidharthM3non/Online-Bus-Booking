@@ -17,7 +17,8 @@ export default class DetailViewBooking extends Component {
 
     constructor(){
         super();
-        this.state = {bookings: [], date: {}, journeyStartTime:{}, journeyEndTime:{}}
+        this.state = {bookings: [], username: {}, busNumber: {}, source: {}, destination: {}, numberOfSeats: {}, 
+        amountPaid: {}, date: {}, journeyStartTime:{}, journeyEndTime:{}}
     }
 
     componentDidMount() {
@@ -28,7 +29,8 @@ export default class DetailViewBooking extends Component {
             .then(
                 data => {
                     console.log(data)
-                    this.setState({bookings:data, date:data, journeyStartTime:data, journeyEndTime:data});
+                    this.setState({bookings:data, username:data, busNumber:data, source:data, destination:data, numberOfSeats:data,
+                        amountPaid:data, date:data, journeyStartTime:data, journeyEndTime:data});
                 }
             );
     }
@@ -48,6 +50,12 @@ export default class DetailViewBooking extends Component {
                 <Table className="table" aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell align="center">Username</TableCell>
+                            <TableCell align="center">BusNumber</TableCell>
+                            <TableCell align="center">Source</TableCell>
+                            <TableCell align="center">Destination</TableCell>
+                            <TableCell align="center">Number of Seats</TableCell>
+                            <TableCell align="center">Amount Paid</TableCell>
                             <TableCell align="center">Date of Booking</TableCell>
                             <TableCell align="center">Journey Start Time</TableCell>
                             <TableCell align="center">Journey End Time</TableCell>
@@ -55,6 +63,12 @@ export default class DetailViewBooking extends Component {
                     </TableHead>
                     <TableBody>
                         <TableRow>
+                            <TableCell align="center">{this.state.bookings.username}</TableCell>
+                            <TableCell align="center">{this.state.bookings.busNumber}</TableCell>
+                            <TableCell align="center">{this.state.bookings.source}</TableCell>
+                            <TableCell align="center">{this.state.bookings.destination}</TableCell>
+                            <TableCell align="center">{this.state.bookings.numberOfSeats}</TableCell>
+                            <TableCell align="center">{this.state.bookings.amountPaid}</TableCell>
                             <TableCell align="center">{this.state.bookings.date}</TableCell>
                             <TableCell align="center">{this.state.bookings.journeyStartTime}</TableCell>
                             <TableCell align="center">{this.state.bookings.journeyEndTime}</TableCell>
