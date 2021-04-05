@@ -101,11 +101,11 @@ export const updateBookings = (id, date) =>{
     }
 }
 
-export const saveUser = (payload) => {
-    return {type: "ADD_USER", payload: {message: "Successfully added bus operator!"}}
+export const saveBusop = (payload) => {
+    return {type: "ADD_BUSOP", payload: {message: "Successfully added bus operator!"}}
 }
 
-export const addUser = (payload) => {
+export const addBusop = (payload) => {
 
     const requestOptions = {
         method: 'POST',
@@ -118,29 +118,32 @@ export const addUser = (payload) => {
                 console.log(res)
                 if(res.status === 201){
                     console.log("success");
-                    dispatch(saveUser())
+                    dispatch(saveBusop())
                 }
             })   
     }
 }
 
-export const getUser = (payload) => {
-    return {type: "GET_USER", payload}
+export const getBusop = (payload) => {
+    return {type: "GET_BUSOP", payload}
 }
 
-export const checkUser = (username, password) => {
 
+export const checkBusop = (username, password) => {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/users/' + username, requestOptions)
+        fetch('http://localhost:80/api/v1/busoperator/busop/' + username, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){
                     console.log("found");
-                    dispatch(getUser(username))
+                    dispatch(getBusop(username));
+                }
+                else{
+                    throw 'Incorrect details';
                 }
             })   
     }

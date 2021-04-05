@@ -170,4 +170,11 @@ public class BusOperatorController {
 		return busOperatorService.getAllBusByUsername(busOperatorUsername);
 	}
 	
+	@GetMapping("/busop/{busOperatorUsername}")
+	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all Bus by Username", response = Bus.class)
+	public BusOperator getBusOperatorByUsername(@PathVariable("busOperatorUsername")String busOperatorUsername){
+		return busOperatorService.getAllBusOperatorByUsername(busOperatorUsername);
+	}
+	
 }

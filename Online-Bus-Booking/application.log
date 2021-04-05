@@ -1,34 +1,340 @@
-2021-04-02 09:06:50.050  INFO 2128 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 2128 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
-2021-04-02 09:06:50.066  INFO 2128 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
-2021-04-02 09:06:50.255  INFO 2128 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-04-02 09:06:50.257  INFO 2128 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-04-02 09:06:52.573  INFO 2128 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-02 09:06:52.880  INFO 2128 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 267 ms. Found 8 JPA repository interfaces.
-2021-04-02 09:06:55.297  INFO 2128 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
-2021-04-02 09:06:55.541  INFO 2128 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-02 09:06:55.542  INFO 2128 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
-2021-04-02 09:06:56.127  INFO 2128 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-04-02 09:06:56.127  INFO 2128 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5869 ms
-2021-04-02 09:06:58.719  INFO 2128 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-02 09:06:59.857  INFO 2128 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
-2021-04-02 09:07:07.488  INFO 2128 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-02 09:07:09.426  INFO 2128 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-02 09:07:12.313  INFO 2128 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-02 09:07:12.604  INFO 2128 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-04-02 09:07:22.500  INFO 2128 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-02 09:07:22.561  INFO 2128 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-02 09:07:22.726  INFO 2128 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-04-02 09:07:31.149  WARN 2128 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-02 09:07:33.107  INFO 2128 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-04-02 09:07:34.044  INFO 2128 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-02 09:07:37.462  INFO 2128 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
-2021-04-02 09:07:37.465  INFO 2128 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-04-02 09:07:38.916  INFO 2128 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-04-02 09:07:39.118  INFO 2128 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-04-02 09:07:40.392  INFO 2128 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
-2021-04-02 09:07:40.497  INFO 2128 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
-2021-04-02 09:07:40.548  INFO 2128 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
-2021-04-02 09:07:40.567  INFO 2128 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
-2021-04-02 09:07:41.053  INFO 2128 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 52.053 seconds (JVM running for 53.422)
-2021-04-02 09:07:41.116  INFO 2128 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
-2021-04-02 09:12:40.994  INFO 2128 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 09:14:55.804  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 09:14:55.832  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 09:14:56.053  INFO 11732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 09:14:56.054  INFO 11732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 09:14:58.600  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 09:14:59.024  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 363 ms. Found 8 JPA repository interfaces.
+2021-04-05 09:15:02.363  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 09:15:02.450  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 09:15:02.451  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 09:15:02.868  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 09:15:02.869  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6813 ms
+2021-04-05 09:15:04.151  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 09:15:04.410  INFO 11732 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-05 09:15:05.151  INFO 11732 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-05 09:15:05.622  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-05 09:15:06.729  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-05 09:15:06.816  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 09:15:11.506  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 09:15:11.529  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 09:15:11.578  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 09:15:14.222  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 09:15:14.861  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 09:15:15.284  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 09:15:16.222  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 09:15:16.225  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 09:15:16.297  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 09:15:16.392  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 09:15:17.019  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 09:15:17.108  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 09:15:17.153  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 09:15:17.201  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 09:15:17.306  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 22.64 seconds (JVM running for 23.982)
+2021-04-05 09:15:17.369  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 09:27:44.941  INFO 11732 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 09:27:44.942  INFO 11732 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 09:27:44.946  INFO 11732 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-04-05 11:26:02.452  INFO 11732 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:02.478  INFO 11732 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:02.551  INFO 11732 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-05 11:26:02.563  INFO 11732 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-05 11:26:03.212  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 11:26:03.435  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 11:26:03.437  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 11:26:05.318  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 11:26:05.463  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 8 JPA repository interfaces.
+2021-04-05 11:26:06.129  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 11:26:06.130  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:26:06.131  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 11:26:06.263  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:26:06.264  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2807 ms
+2021-04-05 11:26:06.476  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 11:26:06.488  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-04-05 11:26:06.593  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-04-05 11:26:06.594  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 11:26:09.012  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 11:26:09.014  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:09.028  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 11:26:10.209  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 11:26:10.396  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:26:10.515  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:10.770  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 11:26:10.778  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:26:10.780  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:26:10.798  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:26:11.166  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 11:26:11.241  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 11:26:11.266  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 11:26:11.293  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 11:26:11.336  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 8.103 seconds (JVM running for 7878.012)
+2021-04-05 11:26:11.347  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 11:26:11.351  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 11:26:22.012  INFO 11732 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:22.062  INFO 11732 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:22.064  INFO 11732 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-04-05 11:26:22.076  INFO 11732 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-04-05 11:26:22.381  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 11:26:23.096  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 11:26:23.098  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 11:26:25.637  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 11:26:25.754  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 8 JPA repository interfaces.
+2021-04-05 11:26:26.059  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 11:26:26.062  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:26:26.062  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 11:26:26.138  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:26:26.139  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3025 ms
+2021-04-05 11:26:26.419  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 11:26:26.434  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-04-05 11:26:26.794  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-04-05 11:26:26.795  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 11:26:28.497  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 11:26:28.498  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:28.506  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 11:26:31.089  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 11:26:31.254  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:26:31.333  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:31.462  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 11:26:31.463  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:26:31.471  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:26:31.488  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:26:32.784  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 11:26:33.056  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 11:26:33.233  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 11:26:33.240  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 11:26:33.289  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 10.884 seconds (JVM running for 7899.965)
+2021-04-05 11:26:33.295  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 11:26:33.297  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 11:26:33.965  INFO 11732 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:33.970  INFO 11732 --- [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:33.972  INFO 11732 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-04-05 11:26:33.989  INFO 11732 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-04-05 11:26:34.296  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 11:26:34.374  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 11:26:34.375  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 11:26:37.537  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 11:26:37.669  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131 ms. Found 8 JPA repository interfaces.
+2021-04-05 11:26:38.168  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 11:26:38.170  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:26:38.171  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 11:26:38.253  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:26:38.254  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3870 ms
+2021-04-05 11:26:38.368  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 11:26:38.386  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-04-05 11:26:38.611  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-04-05 11:26:38.613  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 11:26:41.376  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 11:26:41.377  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:41.389  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 11:26:43.449  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 11:26:43.616  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:26:43.688  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:43.866  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 11:26:43.869  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:26:43.870  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:26:43.911  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:26:44.160  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 11:26:44.363  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 11:26:44.395  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 11:26:44.422  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 11:26:44.461  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 10.157 seconds (JVM running for 7911.136)
+2021-04-05 11:26:44.465  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 11:26:44.467  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 11:26:45.674  INFO 11732 --- [Thread-27] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:45.714  INFO 11732 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:45.716  INFO 11732 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-04-05 11:26:45.730  INFO 11732 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-04-05 11:26:46.130  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 11:26:46.278  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 11:26:46.279  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 11:26:48.456  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 11:26:48.670  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 206 ms. Found 8 JPA repository interfaces.
+2021-04-05 11:26:49.033  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 11:26:49.035  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 11:26:49.035  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 11:26:49.091  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 11:26:49.092  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2802 ms
+2021-04-05 11:26:49.391  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 11:26:49.409  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-04-05 11:26:49.718  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-04-05 11:26:49.719  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 11:26:52.828  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 11:26:52.829  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 11:26:52.841  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 11:26:54.262  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 11:26:54.697  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 11:26:54.859  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 11:26:55.228  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 11:26:55.229  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 11:26:55.231  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 11:26:55.334  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 11:26:55.956  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 11:26:56.118  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 11:26:56.174  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 11:26:56.188  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 11:26:56.238  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 10.096 seconds (JVM running for 7922.914)
+2021-04-05 11:26:56.241  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 11:26:56.242  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 11:27:12.288  INFO 11732 --- [http-nio-80-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 11:27:12.290  INFO 11732 --- [http-nio-80-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 11:27:12.291  INFO 11732 --- [http-nio-80-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-05 12:18:57.392  INFO 11732 --- [Thread-33] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:18:57.395  INFO 11732 --- [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:18:57.399  INFO 11732 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-04-05 12:18:57.414  INFO 11732 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-04-05 12:18:57.950  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 12:18:58.085  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 12:18:58.088  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 12:18:59.014  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 12:18:59.125  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 8 JPA repository interfaces.
+2021-04-05 12:18:59.619  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 12:18:59.622  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 12:18:59.623  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 12:18:59.658  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 12:18:59.659  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1558 ms
+2021-04-05 12:18:59.770  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 12:18:59.779  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-04-05 12:18:59.980  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-04-05 12:18:59.980  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 12:19:01.446  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 12:19:01.447  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:19:01.456  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 12:19:02.273  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 12:19:02.422  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 12:19:02.509  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:19:02.640  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 12:19:02.642  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 12:19:02.643  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 12:19:02.659  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 12:19:02.838  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 12:19:02.907  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 12:19:02.921  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 12:19:02.930  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 12:19:02.955  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 4.992 seconds (JVM running for 11049.63)
+2021-04-05 12:19:02.959  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 12:19:02.960  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 12:19:06.700  INFO 11732 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 12:19:06.840  INFO 11732 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 12:19:06.841  INFO 11732 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-05 12:19:06.939  WARN 11732 --- [http-nio-80-exec-5] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorAlreadyExistsException: Bus Operator doesn't exist!]
+2021-04-05 12:19:20.821  WARN 11732 --- [http-nio-80-exec-7] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorAlreadyExistsException: Bus Operator doesn't exist!]
+2021-04-05 12:22:02.656  INFO 11732 --- [Thread-40] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:02.658  INFO 11732 --- [Thread-40] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:02.659  INFO 11732 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-04-05 12:22:02.675  INFO 11732 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-04-05 12:22:03.222  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 12:22:03.275  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 12:22:03.275  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 12:22:03.921  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 12:22:03.991  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 8 JPA repository interfaces.
+2021-04-05 12:22:04.240  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 12:22:04.257  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 12:22:04.258  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 12:22:04.285  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 12:22:04.286  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1008 ms
+2021-04-05 12:22:04.356  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 12:22:04.471  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-04-05 12:22:04.551  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-04-05 12:22:04.552  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 12:22:05.944  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 12:22:05.945  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:05.952  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 12:22:06.956  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 12:22:07.049  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 12:22:07.111  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:07.224  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 12:22:07.225  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 12:22:07.227  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 12:22:07.244  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 12:22:07.390  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 12:22:07.422  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 12:22:07.435  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 12:22:07.441  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 12:22:07.455  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 4.226 seconds (JVM running for 11234.131)
+2021-04-05 12:22:07.458  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 12:22:07.458  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 12:22:28.562  INFO 11732 --- [Thread-46] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:28.615  INFO 11732 --- [Thread-46] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:28.616  INFO 11732 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-04-05 12:22:28.635  INFO 11732 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2021-04-05 12:22:28.921  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 12:22:29.024  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 12:22:29.024  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 12:22:29.993  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 12:22:30.095  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 8 JPA repository interfaces.
+2021-04-05 12:22:30.209  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 12:22:30.210  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 12:22:30.211  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 12:22:30.236  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 12:22:30.237  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1206 ms
+2021-04-05 12:22:30.291  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 12:22:30.297  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2021-04-05 12:22:30.366  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2021-04-05 12:22:30.367  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 12:22:31.797  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 12:22:31.797  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:31.811  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 12:22:32.208  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 12:22:32.299  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 12:22:32.344  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:32.424  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 12:22:32.425  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 12:22:32.426  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 12:22:32.433  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 12:22:32.577  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 12:22:32.605  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 12:22:32.613  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 12:22:32.616  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 12:22:32.627  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 3.657 seconds (JVM running for 11259.303)
+2021-04-05 12:22:32.631  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 12:22:32.632  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 12:22:40.769  INFO 11732 --- [Thread-52] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:40.771  INFO 11732 --- [Thread-52] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:40.772  INFO 11732 --- [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2021-04-05 12:22:40.855  INFO 11732 --- [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2021-04-05 12:22:41.181  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Before Starting application
+2021-04-05 12:22:41.233  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 1.8.0_192 on DESKTOP-2KEIG38 with PID 11732 (C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking\bin\main started by sidha in C:\Users\sidha\eclipse-workspace\SprintProject\Online-Bus-Booking)
+2021-04-05 12:22:41.234  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-05 12:22:42.100  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-05 12:22:42.186  INFO 11732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 8 JPA repository interfaces.
+2021-04-05 12:22:42.422  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 12:22:42.423  INFO 11732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 12:22:42.423  INFO 11732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-05 12:22:42.446  INFO 11732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 12:22:42.446  INFO 11732 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1207 ms
+2021-04-05 12:22:42.512  INFO 11732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-05 12:22:42.522  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2021-04-05 12:22:42.646  INFO 11732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2021-04-05 12:22:42.647  INFO 11732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-05 12:22:44.548  INFO 11732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-05 12:22:44.549  INFO 11732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-05 12:22:44.560  INFO 11732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 12:22:45.933  WARN 11732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-05 12:22:46.133  INFO 11732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-05 12:22:46.253  INFO 11732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 12:22:46.534  INFO 11732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 12:22:46.541  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-05 12:22:46.545  INFO 11732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-05 12:22:46.597  INFO 11732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-05 12:22:46.740  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-05 12:22:46.782  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-05 12:22:46.805  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-05 12:22:46.812  INFO 11732 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-05 12:22:46.831  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 5.643 seconds (JVM running for 11273.506)
+2021-04-05 12:22:46.834  INFO 11732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 12:22:46.835  INFO 11732 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-05 12:26:11.150  INFO 11732 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 12:26:11.153  INFO 11732 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 12:26:11.156  INFO 11732 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-05 12:26:11.262  WARN 11732 --- [http-nio-80-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 12:28:17.828  WARN 11732 --- [http-nio-80-exec-5] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 12:32:20.741  WARN 11732 --- [http-nio-80-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 12:32:55.739  WARN 11732 --- [http-nio-80-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 12:43:49.808  WARN 11732 --- [http-nio-80-exec-8] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:33:24.388  WARN 11732 --- [http-nio-80-exec-10] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:34:34.139  WARN 11732 --- [http-nio-80-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:35:34.329  WARN 11732 --- [http-nio-80-exec-4] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:42:53.146  WARN 11732 --- [http-nio-80-exec-10] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:49:56.822  WARN 11732 --- [http-nio-80-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 13:55:00.044  WARN 11732 --- [http-nio-80-exec-5] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 14:01:52.598  WARN 11732 --- [http-nio-80-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]
+2021-04-05 14:04:06.027  WARN 11732 --- [http-nio-80-exec-1] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException: Bus Operator doesn't exist!]

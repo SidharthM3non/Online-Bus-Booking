@@ -13,6 +13,7 @@ import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
 import com.cg.OnlineBusBooking.exceptions.BusAlreadyExistException;
 import com.cg.OnlineBusBooking.exceptions.BusOperatorAlreadyExistsException;
+import com.cg.OnlineBusBooking.exceptions.BusOperatorNotFoundException;
 import com.cg.OnlineBusBooking.repositories.IBookingRepository;
 import com.cg.OnlineBusBooking.repositories.IBusOperatorRepository;
 import com.cg.OnlineBusBooking.repositories.IBusRepository;
@@ -123,6 +124,17 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 		// TODO Auto-generated method stub
 		Bus bus = busRepository.findByBusOperatorBusOperatorUsername(busOperatorUsername);
 		return bus;
+	}
+	
+	@Override
+	public BusOperator getAllBusOperatorByUsername(String busOperatorUsername) {
+		BusOperator busOp = busOperatorRepository.findByBusOperatorUsername(busOperatorUsername);
+		if(busOp==null) {
+			throw new BusOperatorNotFoundException("Bus Operator doesn't exist!");
+		}
+		else {
+			return busOp;
+		}
 	}
 	
 	//Code end - By Saurabh Dadhich

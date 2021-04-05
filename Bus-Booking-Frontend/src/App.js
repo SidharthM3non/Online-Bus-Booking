@@ -16,9 +16,12 @@ import Revenue from './Home/components/BusOperator/Revenue';
 import MonthlyRev from './Home/components/BusOperator/MonthlyRev';
 import RouteRev from './Home/components/BusOperator/RouteRev';
 import YearlyRev from './Home/components/BusOperator/YearlyRev';
+import BusOp from './Home/components/BusOperator/BusOp';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Footer from 'Home/components/Footer/Footer.js';
+import BusOpSignIn from 'Home/components/BusOperator/BusOpSignIn.js';
 const useStyles = makeStyles(styles);
 
 var hist = createBrowserHistory();
@@ -43,10 +46,12 @@ function App() {
           color: 'white',
         }}
       />
+      
       <Home />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <Switch>
-          <Route exact path="/" component={Body} />
+          <Route exact path="/" component={BusOp} />
+          <Route exact path="/home" component={Body} />
           <div>
           <div style={{
             display: "flex",
@@ -85,11 +90,16 @@ function App() {
           <Route path="/yearlyrevenue">
             <YearlyRev />
           </Route>
+          <Route path="/busopsignup">
+            <BusOpSignIn/>
+          </Route>
           <Route path="/detailview/:id" component={DetailViewBooking} />
           </div>
-        </Switch>       
+        </Switch>      
       </div>
+      <Footer/>
     </Router>
+
   );
 }
 

@@ -25,4 +25,6 @@ public interface IBusOperatorService {
 	public void updatePassword(String oldPassword, String newPassword);
 
 	public Bus getAllBusByUsername(String busOperatorUsername);
+
+	public BusOperator getAllBusOperatorByUsername(String busOperatorUsername);
 }
