@@ -2,31 +2,41 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import * as actions from '../actions/action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Login() {
   const dispatch = useDispatch();
+  const progress = useSelector(state=>state.progress);
+  const login = useSelector(state=>state.login);
+  const busOps = useSelector(state=>state.busOps);
   const username = useRef();
   const password = useRef();
+  const errorMessage = useSelector(state=>state.errorMessage);
   const [error, setError] = useState('');
   const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
     try {
+      dispatch({type: "PROGRESS", payload: true})
+      // dispatch({type: "LOGIN", payload: true})
       dispatch(actions.checkBusop(username.current.value));
-      history.push("/home");
+      // history.push("/home");
     } catch (errorm){
       setError(errorm);
     }
   }
-
+  console.log(progress);
+  console.log(busOps);
+  if(busOps != undefined){
+    history.push("/home");
+  }
   return (
     <div>
       <Card bg='white' text='dark'>
         <Card.Body>
           <h2 className='text-center mb-4'>Log In</h2>
-          {error && <Alert variant='danger'>{error}</Alert>}
+          {errorMessage && <Alert variant='danger'>{errorMessage}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id='username'>
               <Form.Label>

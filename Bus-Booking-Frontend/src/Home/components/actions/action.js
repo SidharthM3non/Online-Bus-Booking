@@ -128,6 +128,10 @@ export const getBusop = (payload) => {
     return {type: "GET_BUSOP", payload}
 }
 
+export const errorBusop = (payload) => {
+    return {type: "ERROR_BUSOP", payload}
+}
+
 
 export const checkBusop = (username, password) => {
     const requestOptions = {
@@ -141,9 +145,10 @@ export const checkBusop = (username, password) => {
                 if(res.status === 302){
                     console.log("found");
                     dispatch(getBusop(username));
+                    
                 }
                 else{
-                    throw 'Incorrect details';
+                    dispatch(errorBusop("Incorrect credentials"));
                 }
             })   
     }
