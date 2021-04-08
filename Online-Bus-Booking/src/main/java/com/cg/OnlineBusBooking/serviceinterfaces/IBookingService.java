@@ -31,5 +31,7 @@ public interface IBookingService {
 
 	public void addFeedback(String username, long bookingid, String comment);
 
+	List<Booking> getAllBookingByUsername(String username);
+
 	
 }

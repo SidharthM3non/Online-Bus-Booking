@@ -214,4 +214,10 @@ public class BookingServiceImpl implements IBookingService {
 	}
 	
 	//Code end - By Sajin S
+	
+	@Override
+	public List<Booking> getAllBookingByUsername(String username){
+		List<Booking> booking = bookingRepository.findByUsername(username);
+		return booking;
+	}
 }

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { useEffect  } from 'react'
 import {
     Link
   } from "react-router-dom";
 import { connect } from 'react-redux';
-import * as actions from '../actions/action'
+import * as actions from '../actions/UserAction';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
@@ -19,6 +19,8 @@ import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from "react-router";
+import { useDispatch, useSelector } from 'react-redux';
 
 const useStyles = ({
     table: {
@@ -34,24 +36,30 @@ const useStyles = ({
     },
   }));
 
- 
+function ViewBooking(){
 
-class ViewBooking extends Component {
+    // constructor(props){
+    //     super(props);
+    //     // this.username = React.createRef();
+    //     this.state = {userBookings: [], message: '', left: false, open: false}
+    // }
 
-    constructor(){
-        super();
-        this.state = {bookings: [], message: '', left: false, open: false}
-    }
+    // componentDidMount() {
+    //     console.log('Initialization...')
+    //     // console.log(this.props.match.params.username)
+    //     console.log(this.state.username);
+    //     // this.props.onFetchBookings(this.props.match.params.id)
+    // }
+    const userBookings = useSelector(state=>state.userBookings);
+    const username = useSelector(state=>state.users);
+    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        console.log("I have been mounted")
+        console.log(username);
+        dispatch(actions.fetchBookings(username))
+      }, [])
 
-    componentDidMount() {
-        console.log('Initialization...')
-        this.props.onFetchBookings()
-    }
-    deleteBooking(bookingId) {
-        return this.props.onDeleteBooking(bookingId)
-    }
-
-    render() {
 
         const classes = useStyles;
 
@@ -62,9 +70,9 @@ class ViewBooking extends Component {
         //     right: false,
         //   });
 
-        var bookingList = this.props.bookings.map((booking, i)=>{
-            return (   
-              <React.Fragment>  
+        var bookingList = userBookings.map((booking, i)=>{
+            return (    
+                <React.Fragment>  
                 <TableRow key={i}>
                     <TableCell component="th" scope="row" align="center">{booking.id}</TableCell>
                     {/* <TableCell>
@@ -73,14 +81,13 @@ class ViewBooking extends Component {
                         </IconButton>
                     </TableCell> */}
                     <TableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></TableCell>
-                    <TableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
-                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
-                        </TableCell>
+                    {/* <TableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
+                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp; */}
                     {/* <Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></TableCell> */}
                             {/* </TableCell> */}
                 </TableRow>
-                </React.Fragment>             
+              </React.Fragment>  
             )
         })
         return (
@@ -97,7 +104,6 @@ class ViewBooking extends Component {
                             <TableCell align="center">Destination</TableCell>
                             <TableCell align="center">Number of Seats</TableCell>
                             <TableCell align="center">Amount Paid</TableCell> */}
-                            <TableCell align="center">Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -108,21 +114,21 @@ class ViewBooking extends Component {
             </div>
         )
     }
-}
+
 
 const mapStateToProps = (state) => {
 
     return {
-        bookings: state.bookings
+        username: state.users,
+        userBookings: state.userBookings
     }
 }
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onFetchBookings: () => dispatch(actions.fetchBookings()), 
-        onDeleteBooking: (bookingId) => dispatch(actions.deleteBooking(bookingId)) 
+        onFetchBookings: (username) => dispatch(actions.fetchBookings(username))
     }
 }
 
 // export default ViewBooking;
-export default connect(mapStateToProps, mapDispatchToState)(ViewBooking);
+export default withRouter(connect(mapStateToProps, mapDispatchToState)(ViewBooking));

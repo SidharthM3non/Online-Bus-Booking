@@ -102,7 +102,7 @@ export const updateBookings = (id, date) =>{
 }
 
 export const saveBusop = (payload) => {
-    return {type: "ADD_BUSOP", payload: {message: "Successfully added bus operator!"}}
+    return {type: "ADD_BUSOP", payload: {payload, message: "Successfully added bus operator!"}}
 }
 
 export const addBusop = (payload) => {
@@ -113,12 +113,12 @@ export const addBusop = (payload) => {
         body: JSON.stringify(payload)
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/busoperator/', requestOptions)
+        fetch('http://localhost:80/api/v1/busoperator/busop/', requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 201){
                     console.log("success");
-                    dispatch(saveBusop())
+                    dispatch(saveBusop(payload))
                 }
             })   
     }

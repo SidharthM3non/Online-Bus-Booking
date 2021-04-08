@@ -1,4 +1,5 @@
 import Home from './Home/Home.js';
+import UserHome from './Home/UserHome.js';
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { Router, Route, Switch, Link } from 'react-router-dom';
@@ -22,6 +23,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Footer from 'Home/components/Footer/Footer.js';
 import BusOpSignIn from 'Home/components/BusOperator/BusOpSignIn.js';
+import UserSignIn from 'Home/components/User/UserSignIn.js';
+import UserLogin from 'Home/components/User/UserLogin.js';
+import UserBody from 'Home/UserBody.js';
+import ViewBookings from 'Home/components/User/ViewBookings.js';
+import { useSelector } from 'react-redux';
+import AddBooking from 'Home/components/User/AddBooking.js';
 const useStyles = makeStyles(styles);
 
 var hist = createBrowserHistory();
@@ -29,10 +36,14 @@ var hist = createBrowserHistory();
 function App() {
   const classes = useStyles();
 
+  const username = useSelector(state=>state.users);
+
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  // const username = useSelector(state=>state.users);
   
   return (
     <Router history={hist}>
@@ -46,12 +57,17 @@ function App() {
           color: 'white',
         }}
       />
-      
       <Home />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <Switch>
           <Route exact path="/" component={BusOp} />
+          <Route exact path="/busopsignup" component={BusOpSignIn}/>
           <Route exact path="/home" component={Body} />
+          <Route exact path="/userlogin" component={UserLogin} />    
+          <Route exact path="/usersignup" component={UserSignIn}/>
+          <Route exact path ={"/userhome/:username"} component={UserBody} />
+          {/* Since this is a SPA and we have different Login pages leading to different views, must comment out the view not being used 
+          during that particular demo      */}
           <div>
           <div style={{
             display: "flex",
@@ -63,7 +79,6 @@ function App() {
                 indicatorColor="primary"
                 textColor="primary">
                 <Tab label="View Booking" to="/viewbooking" component={Link} />
-                {/* <Tab label="Add Booking" to="/add" component={Link} /> */}
                 <Tab label="Add Bus" to="/addbus" component={Link} />
                 <Tab label="Revenue" to="/revenue" component={Link} />
               </Tabs>
@@ -90,11 +105,33 @@ function App() {
           <Route path="/yearlyrevenue">
             <YearlyRev />
           </Route>
-          <Route path="/busopsignup">
-            <BusOpSignIn/>
-          </Route>
           <Route path="/detailview/:id" component={DetailViewBooking} />
           </div>
+           {/* Since this is a SPA and we have different Login pages leading to different views, must comment out the view not being used 
+          during that particular demo     */}
+          {/* <div>
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>   
+            <Paper square>
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary">
+                <Tab label="View Bookings" to={"/viewbookings/"+username} component={Link} />
+                <Tab label="Add Booking" to="/addbooking" component={Link} />
+              </Tabs>
+            </Paper>
+          </div>
+          <Route path={"/viewbookings/"+username}>
+            <ViewBookings/>
+          </Route>
+          <Route path="/addbooking">
+            <AddBooking />
+          </Route>
+          <Route path="/detailview/:id" component={DetailViewBooking} />    
+          </div> */}
         </Switch>      
       </div>
       <Footer/>

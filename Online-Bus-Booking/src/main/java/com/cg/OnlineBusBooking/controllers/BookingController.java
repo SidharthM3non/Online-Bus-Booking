@@ -222,4 +222,12 @@ public class BookingController {
 	
 	//Code end - By Sajin S & Sadathulla Shariff	
 	
+	
+	@GetMapping("/user/{username}")
+	@ResponseStatus(HttpStatus.FOUND)
+	@ApiOperation(value = "Get all bookings", response = Booking.class)
+	public List<Booking> getAllBookingByUsername (@PathVariable("username") String username){
+		return bookingService.getAllBookingByUsername(username);
+	}
+	
 }

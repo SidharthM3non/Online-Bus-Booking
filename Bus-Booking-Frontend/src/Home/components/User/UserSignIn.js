@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/action';
+import * as actions from '../actions/UserAction';
 import { Form, Button, Card } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
 // import Card from '@material-ui/core/Card';
@@ -18,21 +18,21 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-class BusOpSignIn extends Component {
+class UserSignIn extends Component {
 
     constructor() {
         super();
-        this.busOperatorUsername = React.createRef();
+        this.username = React.createRef();
         this.password = React.createRef();
         this.state = {message: '', open: false}
     }
 
-    addBusop(event) {
-        console.log('Method to add busOp; username', this.busOperatorUsername.current.value);
-        console.log('Method to add busOp; password', this.password.current.value);
+    addUser(event) {
+        console.log('Method to add user; username', this.username.current.value);
+        console.log('Method to add user; password', this.password.current.value);
         event.preventDefault();
 
-        this.props.onAddBusop({id:0, busOperatorUsername: this.busOperatorUsername.current.value, password: this.password.current.value});
+        this.props.onAddUser({id:0, username: this.username.current.value, password: this.password.current.value});
         this.handleClick();
     }
 
@@ -80,13 +80,13 @@ class BusOpSignIn extends Component {
             // </Grid>
             <Card bg='white' text='dark'>
                 <Card.Body>
-                    <h2 className='text-center mb-4'>BusOp Sign Up</h2>
+                    <h2 className='text-center mb-4'>User Sign Up</h2>
                     <Form>
                         <Form.Group id='username'>
                             <Form.Label>
                                 <h5>Username</h5>
                             </Form.Label>
-                            <Form.Control type='text' ref={this.busOperatorUsername} required />
+                            <Form.Control type='text' ref={this.username} required />
                         </Form.Group>
                         <Form.Group id='password'>
                             <Form.Label>
@@ -94,12 +94,12 @@ class BusOpSignIn extends Component {
                             </Form.Label>
                             <Form.Control type='password' ref={this.password} required />
                         </Form.Group>
-                        <Button className='w-100' type='submit' onClick={this.addBusop.bind(this)}>
+                        <Button className='w-100' type='submit' onClick={this.addUser.bind(this)}>
                             Sign Up
             </Button>
                     </Form>
                     <div className='w-100 text-center mt-2'>
-                        <Link to="/">Back to Login </Link>
+                        <Link to="/userlogin">Back to Login </Link>
                     </div>
                     {this.props.message && 
                         <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
@@ -119,8 +119,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToState = (dispatch) => {
     return {
-        onAddBusop: (payload) => dispatch(actions.addBusop(payload))
+        onAddUser: (payload) => dispatch(actions.addUser(payload))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToState)(BusOpSignIn);
+export default connect(mapStateToProps, mapDispatchToState)(UserSignIn);

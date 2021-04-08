@@ -81,7 +81,7 @@ public class UserController {
 	
 	@GetMapping("/{username}")
 	@Transactional
-	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseStatus(HttpStatus.FOUND)
 	@ApiOperation(value = "find user", notes = "Provide username", response = User.class)
 	public User findUser(@PathVariable("username") String username) {
 		return userService.findUser(username);

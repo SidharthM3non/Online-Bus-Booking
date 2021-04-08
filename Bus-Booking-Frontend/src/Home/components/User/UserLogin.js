@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import * as actions from '../actions/action';
+import * as actions from '../actions/UserAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import ViewBookings from './ViewBookings';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -13,7 +14,7 @@ function Alert(props) {
 export default function Login() {
   const dispatch = useDispatch();
   const progress = useSelector(state=>state.progress);
-  const busOps = useSelector(state=>state.busOps);
+  const users = useSelector(state=>state.users);
   const username = useRef();
   const password = useRef();
   const errorMessage = useSelector(state=>state.errorMessage);
@@ -34,16 +35,16 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     try {
-      // dispatch({type: "PROGRESS", payload: true})
+    //   dispatch({type: "PROGRESS", payload: true})
       // dispatch({type: "LOGIN", payload: true})
-      dispatch(actions.checkBusop(username.current.value));
+      dispatch(actions.checkUser(username.current.value));
       // history.push("/home");
     } catch (errorm){
     }
   }
-  console.log(busOps);
-  if(busOps != undefined){
-    history.push("/home");
+  console.log(users);
+  if(users != undefined){
+    history.push("/userhome/"+users);
   }
   return (
     <div>
@@ -70,9 +71,10 @@ export default function Login() {
             <Button className='w-100' type='submit' onClick={handleClick}>
               Log In
             </Button>
+            
           </Form>
           <div className='w-100 text-center mt-2'>
-            New user? <Link to='/busopsignup'>Sign Up</Link>
+            New user? <Link to='/usersignup'>Sign Up</Link>
           </div>
         </Card.Body>
       </Card>

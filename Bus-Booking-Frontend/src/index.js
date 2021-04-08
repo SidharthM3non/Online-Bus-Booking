@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import reducer from './Home/components/Store/reducer';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { Route, Router, Switch } from 'react-router';
 
 // pages for this product
 const store = createStore(
