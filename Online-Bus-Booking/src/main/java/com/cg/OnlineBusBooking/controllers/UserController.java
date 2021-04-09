@@ -79,12 +79,12 @@ public class UserController {
 		userService.updateUser(username, password);
 	}
 	
-	@GetMapping("/{username}")
+	@GetMapping("/{username}/{password}")
 	@Transactional
 	@ResponseStatus(HttpStatus.FOUND)
 	@ApiOperation(value = "find user", notes = "Provide username", response = User.class)
-	public User findUser(@PathVariable("username") String username) {
-		return userService.findUser(username);
+	public User findUserByUsernameAndPassword(@PathVariable("username") String username, @PathVariable("password") String password) {
+		return userService.findUserByUsernameAndPassword(username, password);
 	}
 	
 	//Code end - By Sagar KC

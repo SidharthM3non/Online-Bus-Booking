@@ -27,4 +27,6 @@ public interface IBusOperatorService {
 	public Bus getAllBusByUsername(String busOperatorUsername);
 
 	public BusOperator getAllBusOperatorByUsername(String busOperatorUsername);
+
+	BusOperator getAllBusOperatorByUsernameAndPassword(String busOperatorUsername, String password);
 }

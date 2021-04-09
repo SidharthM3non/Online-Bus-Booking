@@ -29,6 +29,7 @@ import UserBody from 'Home/UserBody.js';
 import ViewBookings from 'Home/components/User/ViewBookings.js';
 import { useSelector } from 'react-redux';
 import AddBooking from 'Home/components/User/AddBooking.js';
+import AddFeedback from 'Home/components/User/AddFeedback.js';
 const useStyles = makeStyles(styles);
 
 var hist = createBrowserHistory();
@@ -76,8 +77,10 @@ function App() {
           }}>   
             <Paper square>
               <Tabs
+                value={value}
                 indicatorColor="primary"
-                textColor="primary">
+                textColor="primary"
+                onChange={handleChange}>
                 <Tab label="View Booking" to="/viewbooking" component={Link} />
                 <Tab label="Add Bus" to="/addbus" component={Link} />
                 <Tab label="Revenue" to="/revenue" component={Link} />
@@ -117,8 +120,10 @@ function App() {
           }}>   
             <Paper square>
               <Tabs
+                value={value}
                 indicatorColor="primary"
-                textColor="primary">
+                textColor="primary"
+                onChange={handleChange}>
                 <Tab label="View Bookings" to={"/viewbookings/"+username} component={Link} />
                 <Tab label="Add Booking" to="/addbooking" component={Link} />
               </Tabs>
@@ -130,7 +135,8 @@ function App() {
           <Route path="/addbooking">
             <AddBooking />
           </Route>
-          <Route path="/detailview/:id" component={DetailViewBooking} />    
+          <Route path="/detailview/:id" component={DetailViewBooking} /> 
+          <Route path="/addfeedback/:username" component={AddFeedback} />   
           </div> */}
         </Switch>      
       </div>

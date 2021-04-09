@@ -17,5 +17,7 @@ public interface IUserService {
 	public List<User> getAllUsers();
 
 	public User findUser(String username);
+
+	User findUserByUsernameAndPassword(String username, String password);
 	
 }

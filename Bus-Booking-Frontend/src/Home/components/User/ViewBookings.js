@@ -86,6 +86,10 @@ function ViewBooking(){
                     {/* <Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></TableCell> */}
                             {/* </TableCell> */}
+                    <TableCell align="center">
+                        <Link to={"/addfeedback/"+username}><Button variant="contained" color="primary" className={classes.button}>Add Feedback
+                        </Button></Link>
+                    </TableCell>
                 </TableRow>
               </React.Fragment>  
             )

@@ -36,7 +36,7 @@ export default function Login() {
     try {
       // dispatch({type: "PROGRESS", payload: true})
       // dispatch({type: "LOGIN", payload: true})
-      dispatch(actions.checkBusop(username.current.value));
+      dispatch(actions.checkBusop(username.current.value, password.current.value));
       // history.push("/home");
     } catch (errorm){
     }

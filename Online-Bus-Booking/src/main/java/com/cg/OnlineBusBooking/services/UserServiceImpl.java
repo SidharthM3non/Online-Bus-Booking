@@ -81,5 +81,17 @@ public class UserServiceImpl implements IUserService {
 		
 	}
 	
+	@Override
+	public User findUserByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		User u = userRepository.findByUsernameAndPassword(username, password);
+		if(u == null) {
+			throw new UserNotFoundException("User does not exist");
+		}
+		else {
+			return u;
+		}	
+	}
+	
 //Code end - By Sagar KC	
 }

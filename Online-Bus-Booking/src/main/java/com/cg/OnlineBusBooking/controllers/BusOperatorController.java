@@ -170,11 +170,12 @@ public class BusOperatorController {
 		return busOperatorService.getAllBusByUsername(busOperatorUsername);
 	}
 	
-	@GetMapping("/busop/{busOperatorUsername}")
+	@GetMapping("/busop/{busOperatorUsername}/{password}")
 	@ResponseStatus(HttpStatus.FOUND)
 	@ApiOperation(value = "Get all Bus by Username", response = Bus.class)
-	public BusOperator getBusOperatorByUsername(@PathVariable("busOperatorUsername")String busOperatorUsername){
-		return busOperatorService.getAllBusOperatorByUsername(busOperatorUsername);
+	public BusOperator getBusOperatorByUsernameAndPassword(@PathVariable("busOperatorUsername")String busOperatorUsername,
+			@PathVariable("password")String password){
+		return busOperatorService.getAllBusOperatorByUsernameAndPassword(busOperatorUsername, password);
 	}
 	
 }

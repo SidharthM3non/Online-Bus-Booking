@@ -26,7 +26,7 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           buttonText='Components'
@@ -36,18 +36,9 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to='/viewbooking' className={classes.dropdownLink}>
-              View Booking
-            </Link>,
-            <Link to='/addbus' className={classes.dropdownLink}>
-              Add Bus
-            </Link>,
-            <Link to='/revenue' className={classes.dropdownLink}>
-            View Revenue
-          </Link>,
           ]}
         />
-      </ListItem>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
           <IconButton aria-label="Delete">

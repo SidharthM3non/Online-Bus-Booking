@@ -127,6 +127,17 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 	}
 	
 	@Override
+	public BusOperator getAllBusOperatorByUsernameAndPassword(String busOperatorUsername, String password) {
+		BusOperator busOp = busOperatorRepository.findByBusOperatorUsernameAndPassword(busOperatorUsername, password);
+		if(busOp==null) {
+			throw new BusOperatorNotFoundException("Bus Operator doesn't exist!");
+		}
+		else {
+			return busOp;
+		}
+	}
+
+	@Override
 	public BusOperator getAllBusOperatorByUsername(String busOperatorUsername) {
 		BusOperator busOp = busOperatorRepository.findByBusOperatorUsername(busOperatorUsername);
 		if(busOp==null) {

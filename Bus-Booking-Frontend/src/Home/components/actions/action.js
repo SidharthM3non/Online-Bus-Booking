@@ -139,13 +139,12 @@ export const checkBusop = (username, password) => {
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/busoperator/busop/' + username, requestOptions)
+        fetch('http://localhost:80/api/v1/busoperator/busop/' + username + '/' + password, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){
                     console.log("found");
-                    dispatch(getBusop(username));
-                    
+                    dispatch(getBusop(username, password));                    
                 }
                 else{
                     dispatch(errorBusop("Incorrect credentials"));

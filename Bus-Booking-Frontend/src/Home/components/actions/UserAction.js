@@ -36,13 +36,12 @@ export const checkUser = (username, password) => {
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:80/api/v1/users/' + username, requestOptions)
+        fetch('http://localhost:80/api/v1/users/' + username + '/' + password, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){
                     console.log("found");
-                    dispatch(getUser(username));
-                    
+                    dispatch(getUser(username, password));                    
                 }
                 else{
                     dispatch(errorUser("Incorrect credentials"));
@@ -71,5 +70,28 @@ export const fetchBookings = (username) => {
                 console.log(data);
                 dispatch(findBookings(data));
             }) 
+    }
+}
+
+export const saveFeedback = (payload) => {
+    return {type: "ADD_FEEDBACK", payload: {message: "Successfully added feedback!"}}
+}
+
+export const addFeedback = (payload) => {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    };
+    return dispatch => {
+        fetch('http://localhost:80/api/v1/feedbacks/', requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 201){
+                    console.log("success");
+                    dispatch(saveFeedback())
+                }
+            })   
     }
 }

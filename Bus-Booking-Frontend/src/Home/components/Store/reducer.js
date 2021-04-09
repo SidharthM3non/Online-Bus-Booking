@@ -15,6 +15,7 @@ const initialState = {
   revenue: 0,
   user: [],
   users: undefined,
+  feedback: [],
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -63,6 +64,8 @@ const reducer = (state = initialState, { type, payload }) => {
         users: payload};
     case "ERROR_USER":
         return {...state, errorMessage: payload};  
+    case "ADD_FEEDBACK":
+        return {...state, message: payload.message, feedback: state.feedback};    
   default:
       return state
   }

@@ -37,7 +37,7 @@ export default function Login() {
     try {
     //   dispatch({type: "PROGRESS", payload: true})
       // dispatch({type: "LOGIN", payload: true})
-      dispatch(actions.checkUser(username.current.value));
+      dispatch(actions.checkUser(username.current.value, password.current.value));
       // history.push("/home");
     } catch (errorm){
     }
